@@ -21,8 +21,9 @@ $(document).ready(function () {
 // theme settings
 $(document).ready(function () {
   $(".theme-settings").on("click", function () {
-    $("body, .theme-settings, .navbar, section, .mynav-link, footer").toggleClass("active-theme"
-    );
+    $(
+      "body, .theme-settings, .navbar, section, .mynav-link, footer"
+    ).toggleClass("active-theme");
   });
 });
 
@@ -31,19 +32,30 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
-// Scroll to top 
- window.addEventListener("scroll", function () {
-      var scroll = document.querySelector(".scrollTop");
-      scroll.classList.toggle("active", window.scrollY > 500);
+// Scroll to top
+window.addEventListener("scroll", function () {
+  var scroll = document.querySelector(".scrollTop");
+  scroll.classList.toggle("active", window.scrollY > 500);
+});
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
   });
+};
 
-  function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-  }
-
-
+const main = document.getElementById("main");
+const highlight = document.getElementById("bar-higlight");
+var mainHeight;
+window.onscroll = function(){
+    mainHeight = main.offsetHeight - window.innerHeight;
+    mainPos = main.getBoundingClientRect();
+    diff = mainHeight + mainPos.top;
+    progressPercentage  = diff / mainHeight * 100;
+    cssWidth = Math.floor(100 - progressPercentage);
+    highlight.style.width = cssWidth + "%";
+}
+ 
 // AOS
 AOS.init();
