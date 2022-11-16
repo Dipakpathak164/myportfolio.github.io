@@ -1106,7 +1106,7 @@ address{
     height: 32px;
   }
   .dynamic-texts li{
-    font-size: 32px;
+    font-size: 40px;
   }
   @keyframes sliding{
     100%{
@@ -1114,7 +1114,7 @@ address{
     }
    }
    .top-hero h1{
-    font-size: 32px;
+    font-size: 20px;
     }
    .flex_1_items img{
     width: 90%;
