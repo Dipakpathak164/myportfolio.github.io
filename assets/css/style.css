@@ -12,6 +12,8 @@
       --dark-14:#141414;
       --dark-2d:#2d2d2d;
       --color-green:#4caf50;
+      --color-red:#fa2307;
+      --color-pink:#fa07d1;
       --var-background: transparent linear-gradient(250deg, var(--dark-00) 0%, var(--dark-14) 100%) 0% 0% no-repeat padding-box; 
   }
 
@@ -125,7 +127,19 @@
       width: 1700px;
       height: 60px;
   }
- 
+ .progress__bar{
+      width: 100%;
+      height: 4px;
+      position: fixed;
+      left: 0;
+      z-index: 999;
+ }
+ .filled{
+      transition: width 0.15s linear;
+      width: 0;
+      height: 100%;
+      background-image: linear-gradient(to right, var(--color-red), var(--color-pink) );
+ }
   /* Custom css */
   .topheader.active-bg{
     position: sticky;
