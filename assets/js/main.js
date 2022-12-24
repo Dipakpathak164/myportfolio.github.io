@@ -59,3 +59,12 @@ window.onscroll = function(){
  
 // AOS
 AOS.init();
+
+// Typing Js
+var typed = new Typed(".type__text", {
+    strings: ["Web Developer", "Youtuber"],
+    smartBackspace: true, // Default value
+    typeSpeed: 60,
+    backSpeed: 60,
+    loop: true,
+ });
