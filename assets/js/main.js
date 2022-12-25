@@ -72,4 +72,7 @@ var typed = new Typed(".type__text", {
  var loader = document.getElementById("preloader");
  window.addEventListener("load", function(){
      loader.style.left = "-100%";
+     setTimeout(function () {
+       clearInterval(tid); //clear above interval after 5 seconds
+     }, 6000);
  })
