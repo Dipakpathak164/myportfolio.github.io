@@ -68,3 +68,8 @@ var typed = new Typed(".type__text", {
     backSpeed: 60,
     loop: true,
  });
+
+ var loader = document.getElementById("preloader");
+ window.addEventListener("load", function(){
+     loader.style.left = "-100%";
+ })

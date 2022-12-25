@@ -29,6 +29,9 @@
       padding: 0;
   }
   /* ---Scrollbar Reset-- */
+  html{
+    scroll-behavior: smooth;
+}
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -97,6 +100,53 @@
       padding-top: 40px;
       padding-bottom: 40px;
  }
+ #preloader{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+ }
+ #preloader img{
+     width: 30px;
+    -webkit-animation-name: onoff; 
+    animation-name: onoff;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    transform: scale(0);
+    filter: blur(5px);
+ }
+ @keyframes onoff {
+    from {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        filter: blur(5px);
+    }
+    65% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+        filter: blur(2px);
+    }
+    100% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        filter: blur(4px);
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+         filter: blur(0);
+    }
+}
  /* Custom Buttons */
  .btn_primary:hover{
      color: var(--blue-dark);
