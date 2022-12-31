@@ -364,6 +364,15 @@
  
  
 /* ===================== */
+.top-hero{
+    background-image:linear-gradient(rgba(9, 25, 0, 0.4),rgba(0,25,0,0.4)), url("../images/realdp.jpg");
+    background-size: 50%;
+    background-position-x: 100%;
+    background-position-y: 60%;
+    background-repeat: no-repeat;
+    width: 100%;
+    position: relative;
+}
 .top-hero .small-hero{
     color: var(--color-be);
     font-size: 22px;
@@ -524,10 +533,10 @@
         -ms-transform: scale(1.3);
             transform: scale(1.3);
 }
-.img-div img{
+/* .img-div img{
        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
        border-radius: 8px; 
-}
+} */
 .about h2, .key-skills h2, .portfolio h2, .contact-me h2{
     color: var(--color-be);
     font-size: 32px;
@@ -890,11 +899,19 @@ button.mynav-link.active-theme.active, button.mynav-link.active-theme:hover{
 }
  
 .card_1{
-    border-radius: 0;
+    border-radius: 8px;
     border: 0;
     background-color: var(--dark-2d);
     padding: 30px;
-    box-shadow: 0 5px 15px  var(--color-be);
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
+
         -webkit-transition: all .6s ease;
     -o-transition: all .6s ease;
     transition: all .6s ease;
@@ -1198,6 +1215,12 @@ address{
         top: -110px;
     }
    }
+
+.top-hero{
+    background-size: 100%;
+    background-position-y: -2%;
+    padding-bottom: 0;
+}
    .top-hero h1{
     font-size: 26px;
     }

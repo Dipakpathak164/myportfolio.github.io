@@ -75,4 +75,4 @@ var typed = new Typed(".type__text", {
      setTimeout(function () {
        clearInterval(tid); //clear above interval after 5 seconds
      }, 6000);
- })
+ });
