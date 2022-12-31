@@ -5,17 +5,16 @@ window.addEventListener("scroll", function () {
 
 // for the main Navbar
 $(document).ready(function () {
-  $("#sidebarCollapse, #closeMenu, #side-click-close, .nv_link").on(
-    "click",
-    function () {
-      $(
-        "#sidebarCollapse, #navbarNav, #closeMenu,  #side-click-close"
-      ).toggleClass("active");
-      $("#overlay_menu").toggleClass("bg-body");
-      $("body").toggleClass("stop-scroll");
-      $("a[aria-expanded=true]").attr("aria-expanded", "false");
-    }
-  );
+  $(
+    "#sidebarCollapse, #closeMenu, #side-click-close, .nv_link, .theme-settings, #body-overlay"
+  ).on("click", function () {
+    $(
+      "#sidebarCollapse, #navbarNav, #closeMenu,  #side-click-close, #body-overlay"
+    ).toggleClass("active");
+    $("#overlay_menu").toggleClass("bg-body");
+    $("body").toggleClass("stop-scroll");
+    $("a[aria-expanded=true]").attr("aria-expanded", "false");
+  });
 });
 
 // theme settings
