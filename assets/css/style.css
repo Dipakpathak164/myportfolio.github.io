@@ -199,13 +199,19 @@
   }
  
    .navbar{
-     padding: .3rem 0;
+     padding: 0;
      background: var(--black-primary);
      -webkit-box-shadow: 0.7px 8.9px 24.5px 0 rgb(8 8 24 / 10%);
      box-shadow: 0.7px 8.9px 24.5px 0 rgb(8 8 24 / 10%);
        -webkit-transition: 0.5s ease-in-out;
     -o-transition: 0.5s ease-in-out;
      transition: 0.5s ease-in-out;
+ }
+ .navbar-brand{
+    padding: 0;
+ }
+ .topheader.active-bg .navbar-brand{
+    padding-bottom: 0.6rem;
  }
  .navbar.active-theme{
      background: var(--color-bg-white);
@@ -236,9 +242,12 @@
  .logo-text:hover{
      opacity: 1;
  }
-  .topheader.active-bg .navbar-brand{
+  /* .topheader.active-bg .navbar-brand{
      transform: scale(0.8);
-  }
+  } */
+.topheader.active-bg .navbar-brand .logo-text{
+     font-size: 30px;
+}
 .light__img{
     width: 30px;
     margin-left: 5px;
@@ -365,13 +374,17 @@
  
 /* ===================== */
 .top-hero{
-    background-image:linear-gradient(rgba(9, 25, 0, 0.4),rgba(0,25,0,0.4)), url("../images/realdp.jpg");
+    background-image:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0,0,0,0.8)), url("../images/realdp.jpg");
     background-size: 50%;
     background-position-x: 100%;
     background-position-y: 60%;
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
+    transition: 0.7s linear;
+}
+.top-hero:hover{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.1),rgba(0,0,0,0.1)), url("../images/realdp.jpg");
 }
 .top-hero .small-hero{
     color: var(--color-be);
@@ -763,7 +776,7 @@
     top: 50%;
     transform: translateY(-50%);
     transition: 0.5s linear;
-    z-index: 99;
+    z-index: 100;
 }
 .floating {
     -webkit-animation-name: floating;
@@ -903,16 +916,8 @@ button.mynav-link.active-theme.active, button.mynav-link.active-theme:hover{
     border: 0;
     background-color: var(--dark-2d);
     padding: 30px;
-  box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12)
-;
-
-        -webkit-transition: all .6s ease;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),0 100px 80px rgba(0, 0, 0, 0.12) ;
+    -webkit-transition: all .6s ease;
     -o-transition: all .6s ease;
     transition: all .6s ease;
     height: 397px;
@@ -1102,6 +1107,21 @@ address{
       visibility: visible;
       opacity: 0.6;
   }
+   #body-overlay{
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 97;
+      display: block;
+    }
+@media (min-width:768px) {
+    #body-overlay{
+      display: none;
+    }
+}
 @media (max-width:1023px){
     .top-hero h1 {
      font-size: 32px;
@@ -1140,17 +1160,18 @@ address{
       width: 100%;
       height: 100%;
       position: fixed;
-      top: -100%;
-      left: 0;
+      top: 0%;
+      right: -100%;
       background: var(--var-background);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 12;
+      z-index: 99;
       transition: 0.3s ease-out;
   }
    #navbarNav.active{
-      top: 0;
+      right: 0;
+      width: 85%;
    }
    #sidebarCollapse.active .bar2 {
        opacity: 0;
@@ -1158,12 +1179,16 @@ address{
     #sidebarCollapse.active .bar1 {
     -webkit-transform: rotate(-45deg) translate(-9px, 6px);
     transform: rotate(-45deg) translate(-9px, 6px);
-}
-#sidebarCollapse.active div.bar3 {
+  }
+   #sidebarCollapse.active div.bar3 {
     -webkit-transform: rotate(45deg) translate(-5px, -3px);
     transform: rotate(45deg) translate(-5px, -3px);
     width: 26px;
-}
+   }
+     #body-overlay.active{
+      display: block;
+      right: 0;
+   }
   .navbar-nav {
       justify-content: center;
       align-items: center;
@@ -1189,6 +1214,9 @@ address{
    .mobile-logo h2{
        font-size: 40px;
       font-weight: bold;
+   }
+   .theme-settings-icon{
+      margin-bottom: 0;
    }
     body p, address , 
 .footer__flex-items ul li a{
