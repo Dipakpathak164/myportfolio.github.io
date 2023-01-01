@@ -383,9 +383,7 @@
     position: relative;
     transition: 0.7s linear;
 }
-.top-hero:hover{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.1),rgba(0,0,0,0.1)), url("../images/realdp.jpg");
-}
+ 
 .top-hero .small-hero{
     color: var(--color-be);
     font-size: 22px;
