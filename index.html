@@ -17,6 +17,9 @@
 
   <!-- Custom css -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- Swiper -->
+  <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <title>Portfolio (Dipak Pathak)</title>
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +34,8 @@
   <header class="topheader">
     <nav class="navbar navbar-expand-sm">
       <div class="container-fluid common_container">
-        <a class="navbar-brand" href="https://dipakpathak164.github.io/myportfolio.github.io/"><span class="logo-text">DL<img src="./assets/images/bulbon.gif" alt="Light">ght</span></a>
+        <a class="navbar-brand" href="https://dipakpathak164.github.io/myportfolio.github.io/"><span
+            class="logo-text">DL<img src="./assets/images/bulbon.gif" alt="Light">ght</span></a>
         <button class="d-md-none d-block toggler-button" id="sidebarCollapse" type="button">
           <div class="bar-parents">
             <div class="bar1"></div>
@@ -41,7 +45,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mobile-logo d-none">
-            <h2><span class="logo-text">DL<img src="./assets/images/bulbon.gif" alt="Light" class="light__img">ght</span></h2>
+            <h2><span class="logo-text">DL<img src="./assets/images/bulbon.gif" alt="Light"
+                  class="light__img animate__animated animate__flip">ght</span></h2>
           </div>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
@@ -65,10 +70,8 @@
             <li class="nav-item theme-settings">
               <a href="javascript:void(0)" class="nav-link theme-settings-icon">
                 <small class="d-md-none d-block">Change the theme</small>
-                <img src="./assets/images/moon3.png" width="20" class="theme-dark" alt="moon"  
-                  data-placement="bottom" >
-                <i class="fa fa-sun-o theme-bright"  data-placement="bottom"
-                 ></i>
+                <img src="./assets/images/moon3.png" width="20" class="theme-dark" alt="moon" data-placement="bottom">
+                <i class="fa fa-sun-o theme-bright" data-placement="bottom"></i>
               </a>
             </li>
           </ul>
@@ -78,430 +81,609 @@
   </header>
   <!-- End Custom navbar -->
   <!-- Progress Bar -->
-   <div class="progress__bar">
-      <div class="filled"  id="bar-higlight"></div>
-   </div>
-   <!-- Progress Bar -->
-   <!-- Pre Loader -->
-   <div id="preloader">
-     <img src="./assets/images/bulbon.gif" alt="light">
-   </div>
-   <!--/ Pre Loader -->
+  <div class="progress__bar">
+    <div class="filled" id="bar-higlight"></div>
+  </div>
+  <!-- Progress Bar -->
+  <!-- Pre Loader -->
+  <div id="preloader">
+    <img src="./assets/images/bulbon.gif" alt="light">
+  </div>
+  <!--/ Pre Loader -->
   <!--=========Start Main ========== -->
-  <main id="main">
-  <section class="text-section top-hero sec-gap">
-    <div class="container-fluid common_container">
-      <div class="row">
-        <div class="col-md-7 d-flex align-items-center" data-aos="fade-up" data-aos-duration="1500">
-          <div>
-            <p class="small-hero">Hello There ! My name is</p>
-            <h2 class="title">Dipak Pathak</h2>
-            <h1>  <h1 class="font-semi-bold">I am a <span class="type__text"></span></h1></h1>
-            
+  <main id="main" class="animate__animated animate__swing  animate__delay-15s">
+    <section class="text-section top-hero sec-gap">
+      <div class="container-fluid common_container">
+        <div class="row">
+          <div class="col-md-7 d-flex align-items-center" data-aos="fade-up" data-aos-duration="1500">
             <div>
-              <a href="tel:6000389802" class="btn btn_primary">
-                Hire me
+              <p class="small-hero">Hello There ! My name is</p>
+              <h2 class="title">Dipak Pathak</h2>
+              <h1>
+                <h1 class="font-semi-bold">I am a <span class="type__text"></span></h1>
+              </h1>
+
+              <div>
+                <a href="tel:6000389802" class="btn btn_primary">
+                  Hire me
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 d-flex align-items-center mt-md-0 mt-4">
+            <div class="photo-frame">
+              <img src="./assets/images/realdp.jpg" alt="profile" class="mx-auto animate__animated animate__flip"
+                data-aos="zoom-in" data-aos-duration="1500">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --About me -->
+    <section class="about sec-gap" id="about-me">
+      <div class="container-fluid common_container">
+        <div class="row">
+          <div class="col-md-4 order-md-1 order-2">
+            <div class="img-div">
+              <img src="./assets/images/about.png" class="w-100 " alt="profile" data-aos="flip-up"
+                data-aos-duration="1500">
+            </div>
+          </div>
+          <div class="col-md-7 order-md-2 order-1 offset-md-1 d-flex align-items-center">
+            <div class="">
+              <div class="col-md-12">
+                <h2 data-aos="fade-up" data-aos-duration="1500">About me</h2>
+                <div class="base-line">
+                  <div>
+                    <div class="bar-line bar-1"></div>
+                    <div class="bar-line bar-2"></div>
+                  </div>
+                  <p class="abt-para">who I am</p>
+                </div>
+                <div class="mt-5">
+                  <h3 data-aos="fade-up" data-aos-duration="1500">I am Dipak Pathak</h3>
+                  <p data-aos="fade-up" data-aos-duration="1500" class="text-justify">An Indian front-end web developer.
+                    I design & develop for the magic of a
+                    user-first experience, combined with clean and minimalistic design.I build Responsive websites for
+                    an
+                    optimal user experience that achieves your business goals. I turn your requirements into
+                    ecommerce-ified websites - on time and on budget.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- --/About me -->
+
+    <!-- ----Service--- -->
+    <section class="sec-gap" id="service">
+      <div class="container-fluid common_container">
+        <div class="row">
+          <h2 class="second-heading text-center" data-aos="fade-up" data-aos-duration="1500">
+            How do I help you?
+          </h2>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-4 col-md-6 p-xl-0 pe-xl-4">
+            <div class="card card_1" data-aos="zoom-in-up">
+              <div class="card_icon">
+                <i class="fa fa-paint-brush"></i>
+              </div>
+              <h2>
+                Web Design
+              </h2>
+              <p>
+                Web design refers to the design of websites that are displayed on the internet. I work on the appearance
+                in some cases, content of a website. Appearance, for instance, relates to the colors, font, and images
+                used.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 p-xl-0 px-xl-2 mt-md-0 mt-4">
+            <div class="card card_1" data-aos="zoom-in-up">
+              <div class="card_icon">
+                <i class="fa fa-mobile"></i>
+              </div>
+              <h2>
+                Devices Responsive
+              </h2>
+              <p>
+                Since the mid-2010s, design for mobile and tablet browsers has become ever-increasingly important.Two of
+                the most common methods for designing websites that work well both on desktop and mobile are responsive
+                and adaptive design.I build responsive websites for cross devices.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 p-xl-0 ps-xl-4 ps-xl-4 mt-lg-0 mt-4 mx-auto">
+            <div class="card card_1" data-aos="zoom-in-up">
+              <div class="card_icon">
+                <i class="fa fa-code"></i>
+              </div>
+              <h2>
+                App Design
+              </h2>
+              <p>
+                Now more than ever an app is essential to your business. Build yours, worry-free. Get award-winning
+                tech,
+                with a fixed price and delivery date before you start.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ----/Service--- -->
+
+    <!-- Key Skills -->
+    <section class="key-skills sec-gap" id="skills">
+      <div class="common_container container-fluid">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 data-aos="fade-up" data-aos-duration="1500">My Skills</h2>
+            <div class="base-line justify-content-center">
+              <div>
+                <div class="bar-line bar-1"></div>
+                <div class="bar-line bar-2"></div>
+              </div>
+              <p class="abt-para">what I know</p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6 d-flex align-items-center">
+            <div class="me-5">
+              <h4 data-aos="fade-up" data-aos-duration="1500" class="sub-key-title">
+                My Creative Skills and Experience
+              </h4>
+              <p data-aos="fade-up" data-aos-duration="1500" class="key-para">
+                <b>Creative and have the ability to solve problems.</b> Good concentration skills and always prepared.
+                Anticipate problems and deal quickly with them.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 mt-md-0 mt-3">
+            <div class="progress_div w-100" data-aos="fade-right" data-aos-duration="1500">
+              <div class="label w-100">
+                <h5>HTML</h5>
+                <span>90%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+                  aria-valuemax="100"></div>
+              </div>
+              <div class="label w-100">
+                <h5>CSS</h5>
+                <span>70%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar_2" role="progressbar" style="width: 70%" aria-valuenow="70"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="label w-100">
+                <h5>JAVASCRIPT</h5>
+                <span>60%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar_3" role="progressbar" style="width: 60%" aria-valuenow="60"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="label w-100">
+                <h5>BOOTSTRAP</h5>
+                <span>85%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar_4" role="progressbar" style="width: 85%" aria-valuenow="60"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="label w-100">
+                <h5>PHP</h5>
+                <span>50%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar_5" role="progressbar" style="width: 50%" aria-valuenow="50"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="label w-100">
+                <h5>MYSQL</h5>
+                <span>60%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar_6" role="progressbar" style="width: 60%" aria-valuenow="60"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Key Skills -->
+
+    <!-- Portfolio-- -->
+    <section class="portfolio sec-gap" id="portfolio">
+      <div class="container-fluid common_container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2>Portfolio</h2>
+            <div class="base-line justify-content-center">
+              <div>
+                <div class="bar-line bar-1"></div>
+                <div class="bar-line bar-2"></div>
+              </div>
+              <p class="abt-para">My last projects</p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4 d-md-flex d-none">
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://discoversignage.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/clientdiscover.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Discover Signage</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://instant-genie.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/project1.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Instant Genie</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://astrohelp.co/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/astrohelp.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>ASTROHELP</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://www.clairvoyance-tech.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/cvtech.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Clairvoyance-Tech</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://plutoplanet.techasoft.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/pluto.jpeg" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Plutoplanet Inc. ​Space Design</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://www.drspinewala.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/spinewala.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Dr. Spinewala</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mt-md-0 mt-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://www.canadaimmigration.today/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/project5.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Canada Immigration</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mt-md-0 mt-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://www.indianrda.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/rda.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>India RDA</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://www.techasoftfoundation.org/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/project2.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Techasof Foundation</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-md-4 mb-0" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://www.techasoft.com/recruitment-service" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/techasoft.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>techasoft.com/recruitment-service</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mt-md-0 mt-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://job.techasoft.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/project4.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>My hiree</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mt-md-0 mt-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://www.bravofoundation.org.in/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/project6.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Bravo Foundation</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- mobile view-->
+        <div class="row mt-4 d-flex d-md-none ox-hidden">
+          <div class="col-md-12">
+            <!-- Slider main container -->
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://discoversignage.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/clientdiscover.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Discover Signage</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://instant-genie.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/project1.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Instant Genie</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://astrohelp.co/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/astrohelp.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>ASTROHELP</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://www.clairvoyance-tech.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/cvtech.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Clairvoyance-Tech</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://plutoplanet.techasoft.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/pluto.jpeg" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Plutoplanet Inc. ​Space Design</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://www.drspinewala.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/spinewala.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Dr. Spinewala</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://www.canadaimmigration.today/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/project5.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Canada Immigration</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://www.indianrda.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/rda.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>India RDA</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://www.techasoftfoundation.org/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/project2.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Techasof Foundation</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://www.techasoft.com/recruitment-service" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/techasoft.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>techasoft.com/recruitment-service</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://job.techasoft.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/project4.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>My hiree</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="https://www.bravofoundation.org.in/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/project6.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Bravo Foundation</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
+        </div>
+        <!-- mobile View -->
+      </div>
+    </section>
+    <!-- /Portfolio-- -->
+    <!-- Contact Me -->
+    <section class="sec-gap contact-me" id="contact-me">
+      <div class="container-fluid common_container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 data-aos="fade-up" data-aos-duration="1500">Contact Me</h2>
+            <div class="base-line justify-content-center">
+              <div>
+                <div class="bar-line bar-1"></div>
+                <div class="bar-line bar-2"></div>
+              </div>
+              <p class="abt-para">Feel Free to contact me</p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6 mx-auto">
+            <div class="contact-box">
+              <a href="tel:+916000389802">
+                <i class="fa fa-phone mr-3"></i>
+                +91 6000389802
+              </a> <br>
+              <a href="mailto:pathakdipak77@gmail.com">
+                <i class="fa fa-envelope mr-3"></i>
+                pathakdipak77@gmail.com
+              </a> <br>
+              <a href="mailto:pathakdipak77@gmail.com">
+                <i class="fa fa-whatsapp mr-3"></i>
+                9916819311
               </a>
             </div>
           </div>
         </div>
-        <div class="col-md-5 d-flex align-items-center mt-md-0 mt-4">
-          <div class="photo-frame">
-            <img src="./assets/images/realdp.jpg" alt="profile" class="mx-auto" data-aos="zoom-in" data-aos-duration="1500">
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- --About me -->
-  <section class="about sec-gap" id="about-me">
-    <div class="container-fluid common_container">
-      <div class="row">
-        <div class="col-md-4 order-md-1 order-2">
-          <div class="img-div">
-            <img src="./assets/images/about.png" class="w-100 " alt="profile" data-aos="flip-up" data-aos-duration="1500">
-          </div>
-        </div>
-        <div class="col-md-7 order-md-2 order-1 offset-md-1 d-flex align-items-center">
-          <div class="">
-            <div class="col-md-12">
-              <h2 data-aos="fade-up" data-aos-duration="1500">About me</h2>
-              <div class="base-line">
-                <div>
-                  <div class="bar-line bar-1"></div>
-                  <div class="bar-line bar-2"></div>
-                </div>
-                <p class="abt-para">who I am</p>
-              </div>
-              <div class="mt-5">
-                <h3 data-aos="fade-up" data-aos-duration="1500">I am Dipak Pathak</h3>
-                <p data-aos="fade-up" data-aos-duration="1500" class="text-justify">An Indian front-end web developer. I design & develop for the magic of a
-                  user-first experience, combined with clean and minimalistic design.I build Responsive websites for an
-                  optimal user experience that achieves your business goals. I turn your requirements into
-                  ecommerce-ified websites - on time and on budget.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- --/About me -->
-
-  <!-- ----Service--- -->
-  <section class="sec-gap" id="service">
-    <div class="container-fluid common_container">
-      <div class="row">
-        <h2 class="second-heading text-center" data-aos="fade-up" data-aos-duration="1500">
-          How do I help you?
-        </h2>
-      </div>
-      <div class="row mt-4">
-        <div class="col-lg-4 col-md-6 p-xl-0 pe-xl-4">
-          <div class="card card_1" data-aos="zoom-in-up">
-            <div class="card_icon">
-              <i class="fa fa-paint-brush"></i>
-            </div>
-            <h2>
-              Web Design
-            </h2>
-            <p>
-              Web design refers to the design of websites that are displayed on the internet. I work on the appearance
-              in some cases, content of a website. Appearance, for instance, relates to the colors, font, and images
-              used.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 p-xl-0 px-xl-2 mt-md-0 mt-4">
-          <div class="card card_1" data-aos="zoom-in-up">
-            <div class="card_icon">
-              <i class="fa fa-mobile"></i>
-            </div>
-            <h2>
-              Devices Responsive
-            </h2>
-            <p>
-              Since the mid-2010s, design for mobile and tablet browsers has become ever-increasingly important.Two of
-              the most common methods for designing websites that work well both on desktop and mobile are responsive
-              and adaptive design.I build responsive websites for cross devices.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 p-xl-0 ps-xl-4 ps-xl-4 mt-lg-0 mt-4 mx-auto">
-          <div class="card card_1" data-aos="zoom-in-up">
-            <div class="card_icon">
-              <i class="fa fa-code"></i>
-            </div>
-            <h2>
-              App Design
-            </h2>
-            <p>
-              Now more than ever an app is essential to your business. Build yours, worry-free. Get award-winning tech,
-              with a fixed price and delivery date before you start.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ----/Service--- -->
-
-  <!-- Key Skills -->
-  <section class="key-skills sec-gap" id="skills">
-    <div class="common_container container-fluid">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h2 data-aos="fade-up" data-aos-duration="1500">My Skills</h2>
-          <div class="base-line justify-content-center">
-            <div>
-              <div class="bar-line bar-1"></div>
-              <div class="bar-line bar-2"></div>
-            </div>
-            <p class="abt-para">what I know</p>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-md-6 d-flex align-items-center">
-          <div class="me-5">
-              <h4 data-aos="fade-up" data-aos-duration="1500" class="sub-key-title">
-            My Creative Skills and Experience
-          </h4>
-          <p data-aos="fade-up" data-aos-duration="1500" class="key-para">
-            <b>Creative and have the ability to solve problems.</b> Good concentration skills and always prepared. Anticipate problems and deal quickly with them.
-          </p>
-          </div>
-        </div>
-        <div class="col-md-6 mt-md-0 mt-3">
-          <div class="progress_div w-100" data-aos="fade-right" data-aos-duration="1500">
-            <div class="label w-100">
-              <h5>HTML</h5>
-              <span>90%</span>
-            </div>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                aria-valuemax="100"></div>
-            </div>
-            <div class="label w-100">
-              <h5>CSS</h5>
-              <span>70%</span>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar_2" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0"
-                aria-valuemax="100"></div>
-            </div>
-            <div class="label w-100">
-              <h5>JAVASCRIPT</h5>
-              <span>60%</span>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar_3" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0"
-                aria-valuemax="100"></div>
-            </div>
-            <div class="label w-100">
-              <h5>BOOTSTRAP</h5>
-              <span>85%</span>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar_4" role="progressbar" style="width: 85%" aria-valuenow="60" aria-valuemin="0"
-                aria-valuemax="100"></div>
-            </div>
-            <div class="label w-100">
-              <h5>PHP</h5>
-              <span>50%</span>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar_5" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                aria-valuemax="100"></div>
-            </div>
-            <div class="label w-100">
-              <h5>MYSQL</h5>
-              <span>60%</span>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar_6" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0"
-                aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Key Skills -->
- 
-  <!-- Portfolio-- -->
-  <section class="portfolio sec-gap" id="portfolio">
-    <div class="container-fluid common_container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h2>Portfolio</h2>
-          <div class="base-line justify-content-center">
-            <div>
-              <div class="bar-line bar-1"></div>
-              <div class="bar-line bar-2"></div>
-            </div>
-            <p class="abt-para">My last projects</p>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://discoversignage.com/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/clientdiscover.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>Discover Signage</p>
-             </div>
-           </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://instant-genie.com/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/project1.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>Instant Genie</p>
-             </div>
-           </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://astrohelp.co/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/astrohelp.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>ASTROHELP</p>
-             </div>
-           </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://www.clairvoyance-tech.com/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/cvtech.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>Clairvoyance-Tech</p>
-             </div>
-           </div>
-          </a>
-        </div>
-         <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://plutoplanet.techasoft.com/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/pluto.jpeg" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>Plutoplanet Inc. ​Space Design</p>
-             </div>
-           </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://www.drspinewala.com/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/spinewala.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>Dr. Spinewala</p>
-             </div>
-           </div>
-          </a>
-        </div>
-        <div class="col-md-4 mt-md-0 mt-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://www.canadaimmigration.today/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/project5.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>Canada Immigration</p>
-             </div>
-           </div>
-          </a>
-        </div>
-        <div class="col-md-4 mt-md-0 mt-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://www.indianrda.com/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/rda.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>India RDA</p>
-             </div>
-           </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://www.techasoftfoundation.org/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/project2.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>Techasof Foundation</p>
-             </div>
-           </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-md-4 mb-0" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://www.techasoft.com/recruitment-service" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/techasoft.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>techasoft.com/recruitment-service</p>
-             </div>
-           </div>
-          </a>
-        </div>
-        <div class="col-md-4 mt-md-0 mt-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://job.techasoft.com/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/project4.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>My hiree</p>
-             </div>
-           </div>
-          </a>
-        </div>
-        <div class="col-md-4 mt-md-0 mt-4" data-aos="zoom-in-down" data-aos-duration="1500">
-          <a href="https://www.bravofoundation.org.in/" target="_blank" class="parent-url">
-            <div class="card portfolio-card">
-             <div class="portfolio-card-img">
-                <img src="./assets/images/project6.png" class="w-100" alt="portfolio">
-             </div>
-             <div class="portfolio-content">
-                <p>Bravo Foundation</p>
-             </div>
-           </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /Portfolio-- -->
-  <!-- Contact Me -->
-  <section class="sec-gap contact-me" id="contact-me">
-    <div class="container-fluid common_container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h2 data-aos="fade-up" data-aos-duration="1500">Contact Me</h2>
-          <div class="base-line justify-content-center">
-            <div>
-              <div class="bar-line bar-1"></div>
-              <div class="bar-line bar-2"></div>
-            </div>
-            <p class="abt-para">Feel Free to contact me</p>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-md-6 mx-auto">
-          <div class="contact-box">
-            <a href="tel:+916000389802">
-              <i class="fa fa-phone mr-3"></i>
-              +91 6000389802
-            </a> <br>
-            <a href="mailto:pathakdipak77@gmail.com">
-              <i class="fa fa-envelope mr-3"></i>
-               pathakdipak77@gmail.com
-            </a> <br>
-            <a href="mailto:pathakdipak77@gmail.com">
-              <i class="fa fa-whatsapp mr-3"></i>
-               9916819311
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /Contact Me -->
+    </section>
+    <!-- /Contact Me -->
   </main>
   <!-- ====Footer=== -->
   <footer class="page-footer py-2">
     <div class="container-fluid common_container">
       <div class="footer__flex">
-      
+
         <!-- footer flex items -->
         <div class="footer__flex-items d-flex flex-md-row flex-column justify-content-between align-items-center">
           <div>
-             © 2022 Copyright: Dlight
+            © 2022 Copyright: Dlight
           </div>
-           <div>
+          <div>
             designed & developed by Dipak Pathak
           </div>
           <div>
@@ -509,7 +691,7 @@
             <ul class="list-style-none">
               <li>
                 <a href="https://www.facebook.com/profile.php?id=100007384833210" target="_blank">
-                   <i class="fa fa-facebook"></i>
+                  <i class="fa fa-facebook"></i>
                 </a>
               </li>
               <li>
@@ -537,11 +719,11 @@
     <i class="fa fa-angle-up fa-2x floating" aria-hidden="true"></i>
   </div>
   <!-- -----scroll top-- -->
-   <!-- ---whatsApp contact-- -->
+  <!-- ---whatsApp contact-- -->
   <span class="float__icon">
-     <a href="https://wa.me/919916819311?text=I%20want%20to%20know%20more%20details%20about%20Services" target="_blank">
-          <img src="./assets/images/whatsap.png" class="floating" width="56" height="56" alt="Whatsapp contact">
-     </a>
+    <a href="https://wa.me/919916819311?text=I%20want%20to%20know%20more%20details%20about%20Services" target="_blank">
+      <img src="./assets/images/whatsap.png" class="floating" width="56" height="56" alt="Whatsapp contact">
+    </a>
   </span>
 
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
@@ -551,9 +733,8 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Typing Text Script -->
   <script src="./assets/js/typed.js"></script>
-  <script>
-
-   </script>
+  <!-- Swiper Js -->
+  <script src="./assets/js/swiper-bundle.min.js"></script>
   <script src="./assets/js/main.js"></script>
 </body>
 

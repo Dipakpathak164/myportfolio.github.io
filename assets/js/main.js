@@ -75,3 +75,31 @@ var typed = new Typed(".type__text", {
        clearInterval(tid); //clear above interval after 5 seconds
      }, 6000);
  });
+ // Swiper Js
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: false,
+  margin: 30,
+  effect: "cube",
+  grabCursor: true,
+  cubeEffect: {
+    shadow: true,
+    slideShadows: true,
+    shadowOffset: 20,
+    shadowScale: 0.94,
+  },
+  keyboard: {
+    enabled: true,
+  },
+  autoplay: {
+    delay: 7500,
+    disableOnInteraction: false,
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
