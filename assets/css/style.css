@@ -227,10 +227,21 @@
       -webkit-transition: 0.5s ease-in-out;
     -o-transition: 0.5s ease-in-out;
      transition: 0.5s ease-in-out;
+     overflow: hidden !important;
+     border-radius: 50%;
+     display: inline-block;
  }
  .navbar-brand img{
-    width: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-left: 5px;
+    transform: scale(1);
+    transition: 0.4s linear;
+ }
+ .navbar-brand:hover img{
+    transform: scale(1.1);
  }
  .logo-text {
     font-size: 50px;
@@ -1085,15 +1096,16 @@ button.mynav-link.active-theme.active, button.mynav-link.active-theme:hover{
     color: var(--blue-dark);
 }
 .footer__flex-items ul li a{
-    color: #666;
+    color: var(--color-green);
         -webkit-transition: 0.3s ease-in-out;
     -o-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
     text-decoration: none;
 }
-.active-theme .footer__flex-items ul li a{
+
+/* .active-theme .footer__flex-items ul li a{
     color: var(--dark-14);
-}
+} */
 .footer__flex-items ul li a:hover{
     color: var(--color-green);
 }
