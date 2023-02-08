@@ -61,7 +61,7 @@ AOS.init();
 
 // Typing Js
 var typed = new Typed(".type__text", {
-    strings: ["Web Developer", "Youtuber"],
+    strings: ["Web Developer", "Full Stack Developer"],
     smartBackspace: true, // Default value
     typeSpeed: 60,
     backSpeed: 60,
