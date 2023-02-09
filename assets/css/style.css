@@ -11,7 +11,7 @@
       --dark-00:#000;
       --dark-14:#141414;
       --dark-2d:#2d2d2d;
-      --color-green:#4caf50;
+      --color-green:#438cf0;
       --color-red:#fa2307;
       --color-pink:#fa07d1;
       --var-background: transparent linear-gradient(250deg, var(--dark-00) 0%, var(--dark-14) 100%) 0% 0% no-repeat padding-box; 
@@ -726,7 +726,6 @@
     -webkit-transition: 5s all;
     -o-transition: 5s all;
     transition: 5s all;
-    object-fit: contain;
 }
 .portfolio-card:hover .portfolio-content{
     left: 0;
@@ -1251,6 +1250,9 @@ address{
    }
    .theme-settings-icon{
       margin-bottom: 0;
+   }
+   .float__icon{
+      top: 85%;
    }
     body p, address , 
 .footer__flex-items ul li a{
