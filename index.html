@@ -31,11 +31,11 @@
     rel="stylesheet">
 </head>
 
-<body>
+<body class="active-theme">
   <div id="body-overlay"></div>
   <!-- Start Custom navbar -->
   <header class="topheader">
-    <nav class="navbar navbar-expand-sm">
+    <nav class="navbar navbar-expand-sm active-theme">
       <div class="container-fluid common_container">
         <a class="navbar-brand" href="https://dipakpathak164.github.io/myportfolio.github.io/"><img src="./assets/images/realdp.jpg" alt="Light"></a>
         <button class="d-md-none d-block toggler-button" id="sidebarCollapse" type="button">
@@ -69,10 +69,10 @@
             <li class="nav-item">
               <a class="nav-link demo nv_link" href="#contact-me">Contact</a>
             </li>
-            <li class="nav-item theme-settings">
+            <li class="nav-item theme-settings active-theme">
               <a href="javascript:void(0)" class="nav-link theme-settings-icon">
                 <small class="d-md-none d-block">Change the theme</small>
-                <img src="./assets/images/moon3.png" width="20" class="theme-dark" alt="moon" data-placement="bottom">
+                <i class="fa fa-moon-o theme-dark" aria-hidden="true"></i>
                 <i class="fa fa-sun-o theme-bright" data-placement="bottom"></i>
               </a>
             </li>
@@ -94,7 +94,7 @@
   <!--/ Pre Loader -->
   <!--=========Start Main ========== -->
   <main id="main">
-    <section class="text-section top-hero sec-gap">
+    <section class="text-section top-hero sec-gap active-theme">
       <div class="container-fluid common_container">
         <div class="row">
           <div class="col-md-7 d-flex align-items-center" data-aos="fade-up" data-aos-duration="1500">
@@ -123,7 +123,7 @@
     </section>
 
     <!-- --About me -->
-    <section class="about sec-gap" id="about-me">
+    <section class="about sec-gap active-theme" id="about-me">
       <div class="container-fluid common_container">
         <div class="row">
           <div class="col-md-4 order-md-1 order-2">
@@ -141,7 +141,7 @@
                     <div class="bar-line bar-1"></div>
                     <div class="bar-line bar-2"></div>
                   </div>
-                  <p class="abt-para">who I am</p>
+                  <p class="abt-para abt-para_w ">who I am</p>
                 </div>
                 <div class="mt-5">
                   <h3 data-aos="fade-up" data-aos-duration="1500">Dipak Pathak</h3>
@@ -161,7 +161,7 @@
     <!-- --/About me -->
 
     <!-- ----Service--- -->
-    <section class="sec-gap" id="service">
+    <section class="sec-gap active-theme" id="service">
       <div class="container-fluid common_container">
         <div class="row">
           <h2 class="second-heading text-center" data-aos="fade-up" data-aos-duration="1500">
@@ -220,7 +220,7 @@
     <!-- ----/Service--- -->
 
     <!-- Key Skills -->
-    <section class="key-skills sec-gap" id="skills">
+    <section class="key-skills active-theme sec-gap" id="skills">
       <div class="common_container container-fluid">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -258,7 +258,7 @@
               </div>
               <div class="label w-100">
                 <h5>CSS</h5>
-                <span>70%</span>
+                <span>85%</span>
               </div>
               <div class="progress">
                 <div class="progress-bar progress-bar_2" role="progressbar" style="width: 70%" aria-valuenow="70"
@@ -278,6 +278,14 @@
               </div>
               <div class="progress">
                 <div class="progress-bar progress-bar_4" role="progressbar" style="width: 85%" aria-valuenow="60"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="label w-100">
+                <h5>REACT</h5>
+                <span>45%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar_8" role="progressbar" style="width: 45%" aria-valuenow="60"
                   aria-valuemin="0" aria-valuemax="100"></div>
               </div>
               <div class="label w-100">
@@ -304,7 +312,7 @@
     <!-- Key Skills -->
 
     <!-- Portfolio-- -->
-    <section class="portfolio sec-gap" id="portfolio">
+    <section class="portfolio sec-gap active-theme" id="portfolio">
       <div class="container-fluid common_container">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -319,6 +327,30 @@
           </div>
         </div>
         <div class="row mt-4 d-md-flex d-none">
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://www.park-bay.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/parkbay.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Parkbay</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://certro.techasoft.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/certro.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Certro</p>
+                </div>
+              </div>
+            </a>
+          </div>
           <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
             <a href="https://discoversignage.com/" target="_blank" class="parent-url">
               <div class="card portfolio-card">
@@ -356,6 +388,18 @@
             </a>
           </div>
           <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="http://www.mentutor.io/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/mentutor.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Mentutor</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
             <a href="https://www.clairvoyance-tech.com/" target="_blank" class="parent-url">
               <div class="card portfolio-card">
                 <div class="portfolio-card-img">
@@ -371,7 +415,7 @@
             <a href="https://plutoplanet.techasoft.com/" target="_blank" class="parent-url">
               <div class="card portfolio-card">
                 <div class="portfolio-card-img">
-                  <img src="./assets/images/pluto.jpeg" class="w-100" alt="portfolio">
+                  <img src="./assets/images/pluto.png" class="w-100" alt="portfolio">
                 </div>
                 <div class="portfolio-content">
                   <p>Plutoplanet Inc. ​Space Design</p>
@@ -472,6 +516,48 @@
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper">
                 <!-- Slides -->
+                 <div class="swiper-slide">
+                  <a href="https://www.park-bay.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/parkbay.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Parkbay</p>
+                      </div>
+                    </div>
+                  </a>
+                 </div>
+                <!-- Slides -->
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <a href="https://certro.techasoft.com/" target="_blank" class="parent-url">
+                      <div class="card portfolio-card">
+                        <div class="portfolio-card-img">
+                          <img src="./assets/images/certro.png" class="w-100" alt="portfolio">
+                        </div>
+                        <div class="portfolio-content">
+                          <p>Certro</p>
+                        </div>
+                      </div>
+                    </a>
+                </div>
+                <!-- Slides -->
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <a href="http://www.mentutor.io/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/mentutor.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Mentutor</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                <!-- Slides -->
                 <div class="swiper-slide">
                   <a href="https://discoversignage.com/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
@@ -528,7 +614,7 @@
                   <a href="https://plutoplanet.techasoft.com/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
-                        <img src="./assets/images/pluto.jpeg" class="w-100" alt="portfolio">
+                        <img src="./assets/images/pluto.png" class="w-100" alt="portfolio">
                       </div>
                       <div class="portfolio-content">
                         <p>Plutoplanet Inc. ​Space Design</p>
@@ -639,7 +725,7 @@
     </section>
     <!-- /Portfolio-- -->
     <!-- Contact Me -->
-    <section class="sec-gap contact-me" id="contact-me">
+    <section class="sec-gap contact-me active-theme" id="contact-me">
       <div class="container-fluid common_container">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -655,7 +741,7 @@
         </div>
         <div class="row mt-4">
           <div class="col-md-6 mx-auto">
-            <div class="contact-box">
+            <div class="contact-box top-case">
               <a href="tel:+916000389802">
                 <i class="fa fa-phone mr-3"></i>
                 +91 6000389802
@@ -676,14 +762,14 @@
     <!-- /Contact Me -->
   </main>
   <!-- ====Footer=== -->
-  <footer class="page-footer py-2">
+  <footer class="page-footer py-2 active-theme">
     <div class="container-fluid common_container">
       <div class="footer__flex">
 
         <!-- footer flex items -->
         <div class="footer__flex-items d-flex flex-md-row flex-column justify-content-between align-items-center">
           <div>
-            © 2022 Copyright: Dlight
+            © 2022 Copyright: Dipak
           </div>
           <div>
             designed & developed by Dipak Pathak
