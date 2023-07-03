@@ -384,7 +384,10 @@ body.active-theme .topheader.active-bg{
  }
 .nav-link.active, .nav-link:hover{
     opacity: 1;
-    color: var(--color-white);
+    color: var(--color-green) !important;
+}
+.navbar.active-theme .nav-link::after,.navbar .nav-link::after{
+    background-color: var(--color-green);
 }
 .nav-link.demo{
   z-index: 1;
@@ -1411,11 +1414,11 @@ address{
           backdrop-filter: blur(15px);
 }
 #navbarNav{
-    width: 95%;
+    width: 100%;
     height: auto;
     position: fixed;
-    bottom: 1rem;
-    border-radius: 2rem;
+    bottom: 0;
+    border-radius: 0;
     left: 50%;
     -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
@@ -1440,10 +1443,13 @@ address{
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+   width: 100%;
+   padding-left: 10px;
+   padding-right: 10px;
 }
  #navbarNav.active{
     right: 0;
-    width: 85%;
+    width: 100%;
  }
  #sidebarCollapse.active .bar2 {
      opacity: 0;
@@ -1464,9 +1470,7 @@ address{
     right: 0;
  }
 .navbar-nav {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: space-between;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
