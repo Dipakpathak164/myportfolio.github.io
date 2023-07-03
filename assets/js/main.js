@@ -79,10 +79,11 @@ var typed = new Typed(".type__text", {
 const swiper = new Swiper(".swiper", {
   // Optional parameters
   direction: "horizontal",
-  loop: false,
+  loop: true,
   margin: 30,
   effect: "cube",
   grabCursor: true,
+  autoplay:false,
   cubeEffect: {
     shadow: true,
     slideShadows: true,
@@ -93,7 +94,6 @@ const swiper = new Swiper(".swiper", {
     enabled: true,
   },
   autoplay: {
-    delay: 7500,
     disableOnInteraction: false,
   },
 
