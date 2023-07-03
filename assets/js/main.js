@@ -6,7 +6,7 @@ window.addEventListener("scroll", function () {
 // for the main Navbar
 $(document).ready(function () {
   $(
-    "#sidebarCollapse, #closeMenu, #side-click-close, .nv_link, .theme-settings, #body-overlay"
+    "#sidebarCollapse, #closeMenu, #side-click-close, #body-overlay"
   ).on("click", function () {
     $(
       "#sidebarCollapse, #navbarNav, #closeMenu,  #side-click-close, #body-overlay"
