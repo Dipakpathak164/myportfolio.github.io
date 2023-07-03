@@ -35,16 +35,22 @@
   <div id="body-overlay"></div>
   <!-- Start Custom navbar -->
   <header class="topheader">
-    <nav class="navbar navbar-expand-sm active-theme">
+    <nav class="navbar navbar-expand-sm active-theme py-1">
       <div class="container-fluid common_container">
         <a class="navbar-brand" href="https://dipakpathak164.github.io/myportfolio.github.io/"><img src="./assets/images/realdp.jpg" alt="Light"></a>
-        <button class="d-md-none d-block toggler-button" id="sidebarCollapse" type="button">
+        <!-- <button class="d-md-none d-block toggler-button" id="sidebarCollapse" type="button">
           <div class="bar-parents">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
           </div>
-        </button>
+        </button> -->
+        <div class="nav-item theme-settings active-theme">
+          <a href="javascript:void(0)" class="nav-link theme-settings-icon me-0">
+            <i class="fa fa-moon-o theme-dark" aria-hidden="true"></i>
+            <i class="fa fa-sun-o theme-bright" data-placement="bottom"></i>
+          </a>
+        </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mobile-logo d-none">
             <h2><span class="logo-text">DL<img src="./assets/images/bulbon.gif" alt="Light"
@@ -52,28 +58,39 @@
           </div>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active nv_link" href="#">Home</a>
+              <a class="nav-link nv_link" href="#">
+                <i class="fa fa-home d-md-none d-block i-mob"></i>
+                Home
+              </a>
+            </li>
+            <li class="nav-item d-md-block d-none">
+              <a class="nav-link nv_link nv_link-about" href="#about-me">
+                <i class="fa fa-user-circle-o d-md-none d-block i-mob"></i>
+                About
+              </a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link nv_link" href="#service">
+                <i class="fa fa-suitcase d-md-none d-block i-mob" ></i>
+                 Service
+               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nv_link nv_link-about" href="#about-me">About</a>
+              <a class="nav-link nv_link" href="#skills">
+                <i class="fa fa-laptop d-md-none d-block i-mob"></i>
+                Skills
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nv_link" href="#service">Service</a>
+           <li class="nav-item">
+              <a class="nav-link nv_link" href="#portfolio">
+                <i class="fa fa-handshake-o d-md-none d-block i-mob" ></i>
+                Portfolio
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nv_link" href="#skills">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nv_link" href="#portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link demo nv_link" href="#contact-me">Contact</a>
-            </li>
-            <li class="nav-item theme-settings active-theme">
-              <a href="javascript:void(0)" class="nav-link theme-settings-icon">
-                <small class="d-md-none d-block">Change the theme</small>
-                <i class="fa fa-moon-o theme-dark" aria-hidden="true"></i>
-                <i class="fa fa-sun-o theme-bright" data-placement="bottom"></i>
+           <li class="nav-item">
+              <a class="nav-link demo nv_link" href="#contact-me">
+                <i class="fa fa-info-circle d-md-none d-block i-mob" ></i>
+                Contact
               </a>
             </li>
           </ul>
@@ -94,7 +111,8 @@
   <!--/ Pre Loader -->
   <!--=========Start Main ========== -->
   <main id="main">
-    <section class="text-section top-hero sec-gap active-theme">
+    <section class="text-section top-hero sec-gap active-theme position-relative">
+      <img src="./assets/images/green.png" alt="img" class="left_float_img">
       <div class="container-fluid common_container">
         <div class="row">
           <div class="col-md-7 d-flex align-items-center" data-aos="fade-up" data-aos-duration="1500">
