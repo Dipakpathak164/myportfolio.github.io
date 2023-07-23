@@ -103,3 +103,22 @@ const swiper = new Swiper(".swiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+// carousel
+$(document).ready(function(){
+  $(".owl-carousel").owlCarousel({
+    center: true,
+    items:2,
+    loop:true,
+    nav:true,
+    dots:false,
+    autoplay:true,
+    margin:10,
+    responsive:{
+        600:{
+            items:3
+        }
+    },navText:["<i class='fa fa-angle-left'></i>",
+    "<i class='fa fa-angle-right' ></i>"]
+  });
+});
