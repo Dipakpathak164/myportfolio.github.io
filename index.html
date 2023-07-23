@@ -22,6 +22,10 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <!-- Swiper -->
   <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+  <!-- Slick -->
+  <link rel="stylesheet" href="./assets/css/owl.carousel.css">
+  <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <title>Portfolio (Dipak Pathak)</title>
   <!-- Google fonts -->
@@ -112,17 +116,16 @@
   <!--=========Start Main ========== -->
   <main id="main">
     <section class="text-section top-hero sec-gap active-theme position-relative">
-      <img src="./assets/images/green.png" alt="img" class="left_float_img">
       <div class="container-fluid common_container">
         <div class="row">
           <div class="col-md-7 d-flex align-items-center" data-aos="fade-up" data-aos-duration="1500">
             <div>
-              <p class="small-hero">Hello There ! My name is</p>
-              <h2 class="title">Dipak Pathak</h2>
+              <p class="small-hero">Hello There ! I go by the Name</p>
+              <h2 class="title">Dipak Pathak , am a</h2>
               
                 <h1 class="font-semi-bold"><span class="type__text"></span></h1>
                
-
+               <p class="top-para"><i class="fa fa-smile-o"></i> Currently Working at <a href="https://www.techasoft.com/" target="_blank">Techasoft Pvt. Ltd</a></p>
               <div>
                 <a href="tel:6000389802" class="btn btn_primary">
                  Contact me
@@ -340,7 +343,7 @@
                 <div class="bar-line bar-1"></div>
                 <div class="bar-line bar-2"></div>
               </div>
-              <p class="abt-para">My last projects</p>
+              <p class="abt-para">My last projects at Techasoft</p>
             </div>
           </div>
         </div>
@@ -413,6 +416,42 @@
                 </div>
                 <div class="portfolio-content">
                   <p>Mentutor</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://www.matrixventurestudio.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/matrixweb.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Matrix Venture Studio</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://sl-nusantara.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/sln.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Strategi Lingkar Nusantara</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500">
+            <a href="https://www.techastudio.com/" target="_blank" class="parent-url">
+              <div class="card portfolio-card">
+                <div class="portfolio-card-img">
+                  <img src="./assets/images/techastudio.png" class="w-100" alt="portfolio">
+                </div>
+                <div class="portfolio-content">
+                  <p>Techastudio</p>
                 </div>
               </div>
             </a>
@@ -527,14 +566,53 @@
           </div>
         </div>
         <!-- mobile view-->
-        <div class="row mt-4 d-flex d-md-none ox-hidden">
+        <div class="row mt-4  d-md-none d-block  ox-hidden ">
           <div class="col-md-12">
             <!-- Slider main container -->
-            <div class="swiper">
+            <div class="my-owl-carousel ox-hidden w-100">
               <!-- Additional required wrapper -->
-              <div class="swiper-wrapper">
+              <div class="owl-carousel owl-theme">
+                <!-- slides -->
+                <div>
+                  <a href="https://www.techastudio.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/techastudio.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Techastudio</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- slides -->
+                <div>
+                  <a href="https://sl-nusantara.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/sln.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Strategi Lingkar Nusantara</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
                 <!-- Slides -->
-                 <div class="swiper-slide">
+                <div>
+                  <a href="https://www.matrixventurestudio.com/" target="_blank" class="parent-url">
+                    <div class="card portfolio-card">
+                      <div class="portfolio-card-img">
+                        <img src="./assets/images/matrixweb.png" class="w-100" alt="portfolio">
+                      </div>
+                      <div class="portfolio-content">
+                        <p>Matrix Venture Studio</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Slides -->
+                 <div class="">
                   <a href="https://www.park-bay.com/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -548,7 +626,7 @@
                  </div>
                 <!-- Slides -->
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                     <a href="https://certro.techasoft.com/" target="_blank" class="parent-url">
                       <div class="card portfolio-card">
                         <div class="portfolio-card-img">
@@ -562,7 +640,7 @@
                 </div>
                 <!-- Slides -->
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="http://www.mentutor.io/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -576,7 +654,7 @@
                 </div>
                 <!-- Slides -->
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://discoversignage.com/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -589,7 +667,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://instant-genie.com/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -602,7 +680,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://astrohelp.co/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -615,7 +693,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://www.clairvoyance-tech.com/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -628,7 +706,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://plutoplanet.techasoft.com/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -641,7 +719,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://www.drspinewala.com/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -654,7 +732,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://www.canadaimmigration.today/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -667,7 +745,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://www.indianrda.com/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -680,7 +758,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://www.techasoftfoundation.org/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -693,7 +771,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://www.techasoft.com/recruitment-service" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -706,7 +784,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://job.techasoft.com/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -719,7 +797,7 @@
                   </a>
                 </div>
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <div class="">
                   <a href="https://www.bravofoundation.org.in/" target="_blank" class="parent-url">
                     <div class="card portfolio-card">
                       <div class="portfolio-card-img">
@@ -841,6 +919,9 @@
   <script src="./assets/js/typed.js"></script>
   <!-- Swiper Js -->
   <script src="./assets/js/swiper-bundle.min.js"></script>
+  <!-- Owl Carousel -->
+  <script src="./assets/js/owl.carousel.js"></script>
+  <script src="./assets/js/owl.carousel.min.js"></script>
   <script src="./assets/js/main.js"></script>
 </body>
 

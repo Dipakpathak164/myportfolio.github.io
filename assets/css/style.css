@@ -93,7 +93,9 @@ ul {
 .active-theme .f-18:hover, .active-theme .f-18{
     color: var(--blue-dark);
  }
-
+ .ox-hidden {
+    overflow-x: hidden;
+ }
 .common_container{
     width: 93%;
 }
@@ -497,6 +499,14 @@ color: #fff;
 }
 .active-theme .top-hero .title{
   color: var(--blue-dark);
+}
+.top-para a{
+  color: var(--color-green);
+  text-decoration: none;
+  font-weight: 600;
+}
+.top-para i{
+  color: var(--color-green);
 }
 .text-wrapper{
   display: -webkit-inline-box;
@@ -1361,6 +1371,40 @@ address{
     z-index: 97;
     display: block;
   }
+  .owl-carousel .owl-stage{
+    padding-top:48px;
+    padding-bottom: 48px;
+  }
+button.owl-next,button.owl-prev{
+    margin:0 10px !important;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+  }
+.owl-next i,.owl-prev i{
+    font-size: 45px;
+    color: #fff;
+}
+.owl-carousel.owl-drag .owl-item{
+    transform: scale(.9);
+    z-index: 1;
+  }
+.owl-carousel.owl-drag .owl-item.active.center{
+     transform: scale(1.4);
+     z-index: 2;
+
+  }
+
+  .owl-carousel.owl-drag .owl-item.active.center .portfolio-card{
+    -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+  .owl-carousel.owl-drag .owl-item .portfolio-card{
+    box-shadow: none;
+  }
 @media (min-width:768px) {
   #body-overlay{
     display: none;
@@ -1570,20 +1614,21 @@ i.i-mob{
       top: -110px;
   }
  }
- .portfolio{
-  padding-bottom: 70px;
- }
+ 
 .top-hero{
-  background-size: 100%;
-  background-position-y: -2%;
+  background-size: cover;
+  /* background-position-y: -2%; */
   padding-bottom: 0;
+}
+.top-para{
+  color: #ffffff !important;
 }
 .top-hero.active-theme{
   background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.4)),to(rgba(0,0,0,0.4))), url(../images/realdp.jpg);
   background-image: -o-linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url(../images/realdp.jpg);
   background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url(../images/realdp.jpg);
 }
-.active-theme.about .abt-para, .key-skills.active-theme p, .portfolio.active-theme p, .contact-me.active-theme p{
+.active-theme.about .abt-para, .portfolio.active-theme p {
   color: #ffffff;
 }
 .active-theme .bar-line{
@@ -1644,6 +1689,13 @@ i.i-mob{
  }
  .portfolio-content{
   left: 0 !important;
+  display: none;
+ }
+ .top-hero .title{
+  font-size: 46px;
+ }
+ .owl-carousel .portfolio-card-img{
+  height: 80px;
  }
 }
 @media (max-width:360px){
