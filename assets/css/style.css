@@ -266,7 +266,7 @@ body.active-theme .topheader.active-bg{
   padding-bottom: 0.6rem;
 } */
 .navbar.active-theme{
-   background: transparent;
+   background: #f5f5f5;
 }
 .topheader.active-bg .navbar{
    padding: 0;
@@ -424,7 +424,7 @@ body.active-theme .topheader.active-bg{
 }
 .theme-settings.active-theme .theme-dark{
   display: block;
-  color: black !important;
+  color:#438cf0 !important;
 }
 .theme-settings .theme-bright{
   display: block;
@@ -474,6 +474,7 @@ color: #fff;
   background-image:-webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.4)),to(rgba(0,0,0,0.4))), url("../images/realdp.jpg");
   background-image:-o-linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url("../images/realdp.jpg");
   background-image:linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url("../images/realdp.jpg"); 
+  background-color: #dff0d8 !important;
 }
 .left_float_img{
   position: absolute;
@@ -667,6 +668,9 @@ color: #fff;
   font-size: 32px;
   font-weight: bold;
 }
+.about{
+  background-color: rgba(12, 12, 13, 1);
+}
 .about.active-theme,.portfolio.active-theme{
   background-image: -webkit-gradient(linear, left top, right bottom, from(var(--color-green)), color-stop(var(--color-green)), color-stop(#00a0c8), to(var(--color-green)));
   background-image: -o-linear-gradient(left top, var(--color-green), var(--color-green), #00a0c8, var(--color-green));
@@ -699,6 +703,9 @@ color: #fff;
 }
 .bar-2{
   width: 18px;
+}
+.key-skills,.contact-me{
+  background-color: rgba(12, 12, 13, 1);
 }
 .about .abt-para, .key-skills p, .portfolio p, .contact-me p{
   color: #ffffff;
@@ -954,12 +961,27 @@ color: #fff;
   background:  var(--dark-2d);
 }
 .page-footer.active-theme{
-  background-color: transparent;
+  background-color: #f5f5f5;
 }
-.page-footer.active-theme .container-fluid{
-  border-top: 1px solid #b0adad;
+ 
+.floating_social{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  z-index: 99;
 }
-
+ 
+.floating_social ul li a{
+  color: #ffffff;
+}
+.floating_social ul li a img{
+  transform: scale(1) rotate(0);
+  transition: 0.35s ease-in;
+}
+.floating_social ul li a:hover img{
+   transform: scale(1.2) rotate(360deg);
+}
 .float__icon {
   position: fixed;
   left: 8px;
@@ -1261,6 +1283,7 @@ button.mynav-link.active-theme.active, button.mynav-link.active-theme:hover{
   background-repeat: repeat;
   width: 100%;
   height: 100%; 
+  background-color: #dff0d8 !important;
 }
 /* .text-section.active-theme, footer.active-theme, .active-theme.portfolio,#service.active-theme{
   background-color: #edf2fc;
@@ -1306,7 +1329,6 @@ button.mynav-link.active-theme.active, button.mynav-link.active-theme:hover{
   color: var(--blue-dark);
 }
 .footer__flex-items ul li a{
-  color: var(--color-green);
       -webkit-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
