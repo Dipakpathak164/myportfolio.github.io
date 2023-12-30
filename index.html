@@ -45,38 +45,42 @@
   <div id="body-overlay"></div>
   <!-- Start Custom navbar -->
   <header class="topheader">
-    <nav class="navbar navbar-expand-sm   py-1">
+    <nav class="navbar navbar-expand   py-1">
       <div class="container-fluid common_container">
         <a class="navbar-brand" href="https://dipakpathak164.github.io/myportfolio.github.io/">
           <img src="./assets/images/logo.webp" class="logoBlack" alt="Light">
           <img src="./assets/images/logow.webp" class="logoWhite" alt="Light">
         </a>
-        <!-- <button class="d-md-none d-block toggler-button" id="sidebarCollapse" type="button">
-          <div class="bar-parents">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-          </div>
-        </button> -->
-        <div class="nav-item theme-settings  ">
-          <a href="javascript:void(0)" class="nav-link theme-settings-icon me-0">
-            <i class="fa fa-moon-o theme-dark" aria-hidden="true"></i>
-            <i class="fa fa-sun-o theme-bright" data-placement="bottom"></i>
-          </a>
+        <div class="d-flex align-items-center">
+           <div class="nav-item theme-settings">
+            <button class="toggler-button" type="button">
+              <a href="javascript:void(0)" class="nav-link theme-settings-icon me-0">
+                <i class="fa fa-moon-o theme-dark" aria-hidden="true"></i>
+                <i class="fa fa-sun-o theme-bright" data-placement="bottom"></i>
+              </a>
+            </button>
+           </div>
+           <button id="sidebarCollapse">
+            <div class="bar-parents">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
+           </button>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mobile-logo d-none">
             <h2><span class="logo-text">DL<img src="./assets/images/bulbon.gif" alt="Light"
                   class="light__img animate__animated animate__flip">ght</span></h2>
           </div>
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav mx-auto">
             <li class="nav-item">
               <a class="nav-link nv_link" href="#">
                 <i class="fa fa-home d-md-none d-block i-mob"></i>
                 Home
               </a>
             </li>
-            <li class="nav-item d-md-block d-none">
+            <li class="nav-item">
               <a class="nav-link nv_link nv_link-about" href="#about-me">
                 <i class="fa fa-user-circle-o d-md-none d-block i-mob"></i>
                 About
@@ -262,7 +266,7 @@
         </div>
         <div class="row mt-4">
           <div class="col-md-6 d-flex align-items-center">
-            <div class="me-5">
+            <div class="me-md-5 text-mb-center">
               <h4 data-aos="fade-up" data-aos-duration="1500" class="sub-key-title">
                 My Creative Skills and Experience
               </h4>
@@ -910,7 +914,7 @@
       <img src="./assets/images/whatsap.png" class="floating" width="56" height="56" alt="Whatsapp contact">
     </a>
   </span>
-
+  <div class="custom-cursor"></div>
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
     integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
