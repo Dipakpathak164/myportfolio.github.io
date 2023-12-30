@@ -122,3 +122,42 @@ $(document).ready(function(){
     "<i class='fa fa-angle-right' ></i>"]
   });
 });
+
+
+// Custom Cursor
+document.addEventListener('mousemove', (e) => {
+  const cursor = document.querySelector('.custom-cursor');
+  cursor.style.left = `${e.clientX}px`;
+  cursor.style.top = `${e.clientY}px`;
+});
+
+const body = document.body;
+const elements = document.querySelectorAll('.bar-parents, .toggle_texts, .scrollTop, .toggler-button');
+
+function handleHover() {
+  body.classList.add('hover');
+}
+
+function handleMouseOut() {
+  body.classList.remove('hover');
+}
+
+function handleLinkHover(e) {
+  const target = e.target;
+
+  if (target.tagName === 'A' || target.tagName === 'IMG' || target.tagName === 'BUTTON') {
+      body.classList.add('link-hover');
+  }
+}
+
+function handleLinkMouseOut() {
+  body.classList.remove('link-hover');
+}
+
+elements.forEach(element => {
+  element.addEventListener('mouseover', handleHover);
+  element.addEventListener('mouseout', handleMouseOut);
+});
+
+document.addEventListener('mouseover', handleLinkHover);
+document.addEventListener('mouseout', handleLinkMouseOut);
