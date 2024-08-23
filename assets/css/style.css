@@ -1522,6 +1522,28 @@ button.owl-next,button.owl-prev{
   .owl-carousel.owl-drag .owl-item .portfolio-card{
     box-shadow: none;
   }
+  .form_box .form-group{
+    margin-bottom: 1rem;
+  }
+  .form_box input,.form_box textarea{
+    border-radius: 0;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid var(--blue-dark);
+    padding-left: 0;
+    color: #fff !important;
+  }
+  .contact-me.active-theme .form_box input,.contact-me.active-theme .form_box textarea{
+    color: var(--blue-dark) !important;
+  }
+  .form_box input:focus,.form_box textarea:focus{
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+  }
+  .form_box input:focus::placeholder,.form_box textarea:focus::placeholder{
+    color: #fff;
+  }
 @media (min-width:768px) {
   #body-overlay{
     display: none;
@@ -1673,7 +1695,7 @@ i.i-mob{
     height: 4px;
  }
  .page-footer .container-fluid{
-   padding-bottom: 70px;
+   /* padding-bottom: 70px; */
  }
  .scrollTop.active{
    bottom: 80px;
