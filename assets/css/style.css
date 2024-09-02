@@ -733,6 +733,7 @@ color: #fff;
           box-shadow:
           5px 5px 10px rgba(0, 0, 0, 0.2), /* Bottom right shadow */
           -5px -5px 10px rgba(255, 255, 255, 0.7);
+  filter: grayscale(100%);
 }
 .photo-frame:hover img{
   -webkit-transform: scale(1.05);
@@ -741,6 +742,10 @@ color: #fff;
           box-shadow:
           2px 2px 8px rgba(0, 0, 0, 0.2), /* Bottom right shadow */
           -2px -2px 8px rgba(255, 255, 255, 0.7);
+          filter: grayscale(0);
+}
+.active-theme .photo-frame img{
+  filter: grayscale(0);
 }
 /* .img-div img{
      box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
