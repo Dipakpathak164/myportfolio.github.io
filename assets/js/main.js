@@ -59,6 +59,14 @@ window.onscroll = function(){
 // AOS
 AOS.init();
 
+// Set footer copyright year automatically
+(function () {
+  var yearElement = document.getElementById("currentYear");
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+})();
+
 // Typing Js
 var typed = new Typed(".type__text", {
     strings: ["Web Developer", "Full Stack Developer"],
