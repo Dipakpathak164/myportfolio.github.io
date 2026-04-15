@@ -886,6 +886,38 @@ color: #fff;
 .progress_div .progress .progress-bar.progress-bar_8{
   background-color:  orange !important;
 }
+.key-skills .skills-grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.key-skills .skill-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(33, 150, 243, 0.28);
+  background-color: rgba(33, 150, 243, 0.14);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.key-skills .skill-pill:hover{
+  transform: translateY(-3px);
+  background-color: rgba(33, 150, 243, 0.22);
+  border-color: rgba(33, 150, 243, 0.40);
+}
+.key-skills.active-theme .skill-pill{
+  border-color: rgba(0, 23, 45, 0.22);
+  background-color: rgba(0, 23, 45, 0.10);
+  color: var(--blue-dark);
+}
+.key-skills.active-theme .skill-pill:hover{
+  background-color: rgba(0, 23, 45, 0.16);
+  border-color: rgba(0, 23, 45, 0.30);
+}
 .portfolio-card{
   border-radius: 12px;
   border: 0;
