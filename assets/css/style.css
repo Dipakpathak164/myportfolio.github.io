@@ -751,7 +751,7 @@ color: #fff;
      box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
      border-radius: 8px; 
 } */
-.about h2, .key-skills h2, .portfolio h2, .contact-me h2{
+.about h2, .key-skills h2, .portfolio h2, .contact-me h2, .recent-projects h2{
   color: var(--color-be);
   font-size: 32px;
   font-weight: bold;
@@ -759,12 +759,13 @@ color: #fff;
 .about{
   background-color: rgba(12, 12, 13, 1);
 }
-.about.active-theme,.portfolio.active-theme{
+.about.active-theme,.portfolio.active-theme,
+.recent-projects.active-theme{
   background-image: -webkit-gradient(linear, left top, right bottom, from(var(--color-green)), color-stop(var(--color-green)), color-stop(#00a0c8), to(var(--color-green)));
   background-image: -o-linear-gradient(left top, var(--color-green), var(--color-green), #00a0c8, var(--color-green));
   background-image: linear-gradient(to right bottom, var(--color-green), var(--color-green), #00a0c8, var(--color-green));
 }
-.active-theme.about h2,  .portfolio.active-theme h2, .contact-me.active-theme h2{
+.active-theme.about h2, .portfolio.active-theme h2, .recent-projects.active-theme h2, .contact-me.active-theme h2{
   color: var(--blue-dark);
 }
 .base-line{
@@ -795,7 +796,7 @@ color: #fff;
 .key-skills,.contact-me{
   background-color: rgba(12, 12, 13, 1);
 }
-.about .abt-para, .key-skills p, .portfolio p, .contact-me p{
+.about .abt-para, .recent-projects .abt-para, .key-skills p, .portfolio p, .contact-me p{
   color: #ffffff;
   opacity: 0.8;
   margin-left: 10px;
