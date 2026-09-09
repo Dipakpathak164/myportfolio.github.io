@@ -995,8 +995,9 @@ color: #fff;
 }
 .portfolio-card .portfolio-card-img img{
   height: 100%;
-  /* -o-object-fit: cover;
-     object-fit: cover; */
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   /* -webkit-filter: grayscale(100%);
@@ -1859,7 +1860,7 @@ i.i-mob{
   font-size: 46px;
  }
  .owl-carousel .portfolio-card-img{
-  height: 80px;
+  height: 140px;
  }
  .card_1{
   height: auto;
