@@ -103,15 +103,16 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
         </nav>
 
         {/* Action Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
           {/* Voice Assistant Launcher */}
           <button
             onClick={onOpenVoice}
-            className="btn btn-secondary"
+            className="btn btn-secondary nav-action-btn"
+            title="Voice AI Assistant"
             style={{
-              padding: '0.5rem 0.9rem',
+              padding: '0.5rem 0.85rem',
               fontSize: '0.85rem',
-              gap: '0.4rem',
+              gap: '0.35rem',
               borderRadius: 'var(--radius-full)',
               border: '1px solid rgba(168, 85, 247, 0.3)',
               color: 'var(--accent-purple)',
@@ -119,17 +120,18 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
             }}
           >
             <Mic size={16} />
-            <span>Voice AI</span>
+            <span className="nav-btn-text">Voice AI</span>
           </button>
 
           {/* AI Assistant Chat Button */}
           <button
             onClick={onOpenChat}
-            className="btn btn-secondary"
+            className="btn btn-secondary nav-action-btn"
+            title="AI Chatbot"
             style={{
-              padding: '0.5rem 0.9rem',
+              padding: '0.5rem 0.85rem',
               fontSize: '0.85rem',
-              gap: '0.4rem',
+              gap: '0.35rem',
               borderRadius: 'var(--radius-full)',
               border: '1px solid rgba(56, 189, 248, 0.3)',
               color: 'var(--accent-cyan)',
@@ -137,16 +139,17 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
             }}
           >
             <Sparkles size={16} />
-            <span>AI Bot</span>
+            <span className="nav-btn-text">AI Bot</span>
           </button>
 
           {/* Theme Switcher Button */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
+            title="Toggle Light/Dark Theme"
             style={{
-              width: '40px',
-              height: '40px',
+              width: '38px',
+              height: '38px',
               borderRadius: '50%',
               border: '1px solid var(--border-color)',
               background: 'var(--bg-card)',
@@ -156,6 +159,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
               justifyContent: 'center',
               cursor: 'pointer',
               transition: 'var(--transition)',
+              flexShrink: 0
             }}
           >
             {theme === 'dark' ? <Sun size={18} style={{ color: '#f59e0b' }} /> : <Moon size={18} style={{ color: '#6366f1' }} />}
@@ -165,15 +169,20 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="mobile-toggle-btn"
+            aria-label="Toggle Mobile Menu"
             style={{
               background: 'none',
               border: 'none',
               color: 'var(--text-primary)',
               cursor: 'pointer',
-              padding: '0.25rem'
+              padding: '0.4rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0
             }}
           >
-            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -193,6 +202,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
             display: 'flex',
             flexDirection: 'column',
             gap: '1.25rem',
+            boxShadow: 'var(--shadow-card)'
           }}
         >
           {navLinks.map((link) => (
@@ -214,6 +224,19 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
       )}
 
       <style>{`
+        @media (max-width: 640px) {
+          .nav-btn-text {
+            display: none !important;
+          }
+          .nav-action-btn {
+            padding: 0 !important;
+            width: 38px !important;
+            height: 38px !important;
+            border-radius: 50% !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+          }
+        }
         @media (min-width: 768px) {
           .desktop-nav { display: flex !important; }
           .mobile-toggle-btn { display: none !important; }
