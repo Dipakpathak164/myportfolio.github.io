@@ -18,7 +18,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" style={{ padding: '6rem 0', position: 'relative' }}>
+    <section id="contact" style={{ padding: '6rem 0', position: 'relative', overflow: 'hidden' }}>
       <div className="container">
         {/* Section Tag */}
         <div className="section-tag">
@@ -38,19 +38,20 @@ export const Contact: React.FC = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr',
-            gap: '3rem'
+            gap: '3rem',
+            width: '100%'
           }}
           className="contact-grid"
         >
           {/* Left Column: Direct Contact Info Cards */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <div className="glass-card" style={{ padding: '1.75rem', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', minWidth: 0 }}>
+            <div className="glass-card contact-info-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', minWidth: 0 }}>
               <div
                 style={{
                   width: '48px',
                   height: '48px',
                   borderRadius: '12px',
-                  backgroundColor: 'rgba(56, 189, 248, 0.1)',
+                  backgroundColor: 'rgba(66, 133, 244, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -60,24 +61,32 @@ export const Contact: React.FC = () => {
               >
                 <Mail size={24} />
               </div>
-              <div>
+              <div style={{ minWidth: 0, flex: 1 }}>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.2rem' }}>Email Me Directly</p>
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
-                  style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-primary)', textDecoration: 'none' }}
+                  style={{
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    color: 'var(--text-primary)',
+                    textDecoration: 'none',
+                    wordBreak: 'break-all',
+                    overflowWrap: 'anywhere',
+                    display: 'block'
+                  }}
                 >
                   {PERSONAL_INFO.email}
                 </a>
               </div>
             </div>
 
-            <div className="glass-card" style={{ padding: '1.75rem', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+            <div className="glass-card contact-info-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', minWidth: 0 }}>
               <div
                 style={{
                   width: '48px',
                   height: '48px',
                   borderRadius: '12px',
-                  backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                  backgroundColor: 'rgba(234, 67, 53, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -87,24 +96,31 @@ export const Contact: React.FC = () => {
               >
                 <Phone size={24} />
               </div>
-              <div>
+              <div style={{ minWidth: 0, flex: 1 }}>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.2rem' }}>Call / WhatsApp</p>
                 <a
                   href={PERSONAL_INFO.socials.phone}
-                  style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-primary)', textDecoration: 'none' }}
+                  style={{
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    color: 'var(--text-primary)',
+                    textDecoration: 'none',
+                    wordBreak: 'break-word',
+                    display: 'block'
+                  }}
                 >
                   {PERSONAL_INFO.phone}
                 </a>
               </div>
             </div>
 
-            <div className="glass-card" style={{ padding: '1.75rem', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+            <div className="glass-card contact-info-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', minWidth: 0 }}>
               <div
                 style={{
                   width: '48px',
                   height: '48px',
                   borderRadius: '12px',
-                  backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                  backgroundColor: 'rgba(52, 168, 83, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -114,9 +130,9 @@ export const Contact: React.FC = () => {
               >
                 <MapPin size={24} />
               </div>
-              <div>
+              <div style={{ minWidth: 0, flex: 1 }}>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.2rem' }}>Location</p>
-                <p style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+                <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-primary)', wordBreak: 'break-word' }}>
                   Bengaluru, India (Open to Remote / Relocation)
                 </p>
               </div>
@@ -149,10 +165,10 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="glass-card" style={{ padding: '2.5rem' }}>
+          <div className="glass-card contact-form-card" style={{ padding: '2.25rem', minWidth: 0 }}>
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '2rem 0' }}>
-                <CheckCircle2 size={56} style={{ color: '#10b981', margin: '0 auto 1.5rem' }} />
+                <CheckCircle2 size={56} style={{ color: '#34A853', margin: '0 auto 1.5rem' }} />
                 <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>Message Sent Successfully!</h3>
                 <p style={{ color: 'var(--text-secondary)' }}>
                   Thank you for reaching out. Dipak will respond to your message shortly.
@@ -253,6 +269,14 @@ export const Contact: React.FC = () => {
       </div>
 
       <style>{`
+        @media (max-width: 640px) {
+          .contact-form-card {
+            padding: 1.25rem !important;
+          }
+          .contact-info-card {
+            padding: 1.15rem !important;
+          }
+        }
         @media (min-width: 992px) {
           .contact-grid {
             grid-template-columns: 0.9fr 1.1fr !important;

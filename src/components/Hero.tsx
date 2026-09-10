@@ -19,6 +19,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenChat, onOpenVoice }) => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -14;
+    const rotateY = ((x - centerX) / centerX) * 14;
+    setTilt({ x: rotateX, y: rotateY });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+    setIsHovered(false);
+  };
+
   useEffect(() => {
     const currentTitle = titles[titleIndex];
     const speed = isDeleting ? 40 : 80;
@@ -48,7 +68,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenChat, onOpenVoice }) => {
         paddingBottom: '4rem',
         display: 'flex',
         alignItems: 'center',
-        position: 'relative'
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
       <div className="container">
@@ -70,8 +91,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenChat, onOpenVoice }) => {
                   width: '8px',
                   height: '8px',
                   borderRadius: '50%',
-                  backgroundColor: '#10b981',
-                  boxShadow: '0 0 10px #10b981'
+                  backgroundColor: '#34A853',
+                  boxShadow: '0 0 10px #34A853'
                 }}
               />
               <span>{PERSONAL_INFO.availability}</span>
@@ -143,7 +164,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenChat, onOpenVoice }) => {
                 <ArrowRight size={18} />
               </a>
 
-              <button onClick={onOpenVoice} className="btn btn-secondary" style={{ borderColor: 'rgba(168, 85, 247, 0.4)', color: 'var(--accent-purple)' }}>
+              <button onClick={onOpenVoice} className="btn btn-secondary" style={{ borderColor: 'rgba(234, 67, 53, 0.4)', color: '#EA4335', background: 'rgba(234, 67, 53, 0.08)' }}>
                 <Mic size={18} />
                 <span>Voice Agent 🎙️</span>
               </button>
@@ -181,38 +202,185 @@ export const Hero: React.FC<HeroProps> = ({ onOpenChat, onOpenVoice }) => {
             </div>
           </div>
 
-          {/* Right Column: Profile Avatar Frame */}
-          <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+          {/* Right Column: Premium Circular Orbital Profile Component */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative', width: '100%', perspective: '1200px' }}>
+            {/* Ambient Background Glow Orbs */}
             <div
+              style={{
+                position: 'absolute',
+                width: '110%',
+                height: '110%',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(66, 133, 244, 0.28) 0%, rgba(52, 168, 83, 0.18) 45%, rgba(0, 0, 0, 0) 70%)',
+                filter: 'blur(45px)',
+                zIndex: 1,
+                animation: 'pulseSphere 6s ease-in-out infinite'
+              }}
+            />
+
+            {/* Main Rounded Circular Avatar Wrapper */}
+            <div
+              onMouseMove={handleMouseMove}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={handleMouseLeave}
+              className="hero-circular-avatar-card"
               style={{
                 position: 'relative',
                 width: '100%',
                 maxWidth: '380px',
                 aspectRatio: '1/1',
-                borderRadius: 'var(--radius-lg)',
-                padding: '8px',
-                background: 'var(--gradient-primary)',
-                boxShadow: 'var(--shadow-glow)'
+                borderRadius: '50%',
+                padding: '6px',
+                zIndex: 2,
+                transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.04 : 1})`,
+                transition: isHovered ? 'transform 0.1s ease-out, box-shadow 0.3s ease' : 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease',
+                boxShadow: isHovered
+                  ? '0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(66, 133, 244, 0.45), 0 0 40px rgba(52, 168, 83, 0.3)'
+                  : '0 20px 60px rgba(0,0,0,0.45), 0 0 40px rgba(66, 133, 244, 0.3)',
+                cursor: 'pointer'
               }}
-              className="animate-float"
             >
-              <img
-                src={PERSONAL_INFO.avatar}
-                alt={PERSONAL_INFO.name}
+              {/* Outer Spreading & Reducing Multi-Color Gradient Glow Aura */}
+              <div
+                className="gradient-glow-spreading-ring"
+                style={{
+                  position: 'absolute',
+                  inset: '-4px',
+                  borderRadius: '50%',
+                  background: 'conic-gradient(from 0deg, #4285F4, #EA4335, #FBBC04, #34A853, #4285F4)',
+                  animation: 'spinGradient 10s linear infinite, spreadAndReduceGlow 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+                  zIndex: -2,
+                  filter: 'blur(14px)',
+                  opacity: 0.6
+                }}
+              />
+
+              {/* Outer 360 Rotating Conic Rainbow Ring */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: '-4px',
+                  borderRadius: '50%',
+                  background: 'conic-gradient(from 0deg, #4285F4, #EA4335, #FBBC04, #34A853, #4285F4)',
+                  animation: 'spinGradient 10s linear infinite',
+                  zIndex: -1,
+                  filter: 'brightness(1.2)',
+                  boxShadow: '0 0 25px rgba(66, 133, 244, 0.4), 0 0 40px rgba(52, 168, 83, 0.3)'
+                }}
+              />
+
+              {/* Dashed Orbital Outer Ring */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: '-16px',
+                  borderRadius: '50%',
+                  border: '2px dashed rgba(66, 133, 244, 0.45)',
+                  animation: 'spinCCW 24s linear infinite',
+                  zIndex: -1,
+                  pointerEvents: 'none'
+                }}
+              />
+
+              {/* Inner Circular Photo Container */}
+              <div
                 style={{
                   width: '100%',
                   height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: 'calc(var(--radius-lg) - 6px)',
-                  filter: 'contrast(1.05)'
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  backgroundColor: '#090d16',
+                  border: '3px solid rgba(255, 255, 255, 0.15)'
                 }}
-              />
+              >
+                {/* Profile Avatar Image */}
+                <img
+                  src={PERSONAL_INFO.avatar}
+                  alt={PERSONAL_INFO.name}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    borderRadius: '50%',
+                    filter: isHovered ? 'contrast(1.08) brightness(1.04)' : 'contrast(1.04)',
+                    transition: 'filter 0.3s ease, transform 0.5s ease',
+                    transform: isHovered ? 'scale(1.06)' : 'scale(1)'
+                  }}
+                />
+
+                {/* Bottom Shadow Gradient Overlay */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: '35%',
+                    background: 'linear-gradient(to top, rgba(9, 13, 22, 0.75) 0%, rgba(9, 13, 22, 0) 100%)',
+                    pointerEvents: 'none'
+                  }}
+                />
+              </div>
+
             </div>
           </div>
         </div>
       </div>
 
       <style>{`
+        @keyframes spinGradient {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        @keyframes spinCCW {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(-360deg); }
+        }
+        @keyframes floatBadge {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
+        }
+        @keyframes pulseSphere {
+          0%, 100% { transform: scale(1); opacity: 0.3; }
+          50% { transform: scale(1.2); opacity: 0.55; }
+        }
+        @keyframes spreadAndReduceGlow {
+          0% {
+            inset: -4px;
+            filter: blur(10px);
+            opacity: 0.45;
+            transform: scale(0.97);
+          }
+          50% {
+            inset: -22px;
+            filter: blur(42px);
+            opacity: 0.95;
+            transform: scale(1.05);
+          }
+          100% {
+            inset: -4px;
+            filter: blur(10px);
+            opacity: 0.45;
+            transform: scale(0.97);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .hero-circular-avatar-card {
+            max-width: min(280px, 70vw) !important;
+            margin: 0 auto !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-circular-avatar-card {
+            max-width: min(230px, 65vw) !important;
+            margin: 0 auto !important;
+          }
+        }
+
         @media (min-width: 992px) {
           .hero-grid {
             grid-template-columns: 1.2fr 0.8fr !important;

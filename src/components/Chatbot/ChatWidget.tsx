@@ -9,14 +9,7 @@ interface ChatWidgetProps {
 }
 
 export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: 'welcome-msg',
-      sender: 'bot',
-      text: "👋 Hi! I'm **Dipak's Real-Time AI Voice Agent**. Click the mic 🎙️, speak your question, and I'll automatically answer and speak back to you!",
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-    }
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
 
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -27,10 +20,11 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
   const latestSpeechRef = useRef<string>('');
 
   const quickChips = [
+    "⭐ Why is Dipak an ideal fit for Next.js/React roles?",
+    "📬 How can I contact or hire him?",
     "💼 Tell me about Dipak's experience",
     "🚀 What projects has he built?",
-    "🛠️ What is his primary tech stack?",
-    "📬 How can I contact or hire him?"
+    "🛠️ What is his primary tech stack?"
   ];
 
   const scrollToBottom = () => {
@@ -38,14 +32,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
   };
 
   const resetChat = () => {
-    setMessages([
-      {
-        id: 'welcome-msg',
-        sender: 'bot',
-        text: "👋 Hi! I'm **Dipak's Real-Time AI Voice Agent**. Click the mic 🎙️, speak your question, and I'll automatically answer and speak back to you!",
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-      }
-    ]);
+    setMessages([]);
     setInput('');
     setIsTyping(false);
     setIsListening(false);
@@ -56,18 +43,33 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
   };
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
     if (isOpen) {
-      scrollToBottom();
+      setIsTyping(true);
+      timer = setTimeout(() => {
+        setMessages([
+          {
+            id: 'welcome-msg',
+            sender: 'bot',
+            text: "👋 Hi! I'm **Dipak's Real-Time AI Voice Agent**. Click the mic 🎙️, speak your question, and I'll automatically answer and speak back to you!",
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        ]);
+        setIsTyping(false);
+      }, 800);
     } else {
       resetChat();
     }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen && messages.length > 1) {
+    if (isOpen) {
       scrollToBottom();
     }
-  }, [messages, isTyping]);
+  }, [messages, isTyping, isOpen]);
 
   const handleToggleMute = () => {
     const muted = voiceService.toggleMute();
@@ -170,12 +172,14 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
     return lines.map((line, lineIdx) => {
       const headingMatch = line.match(/^(#{1,3})\s+(.*)$/);
       const bulletMatch = line.match(/^[-*]\s+(.*)$/);
+      const numberMatch = line.match(/^(\d+\.)\s+(.*)$/);
 
       const parseInline = (str: string): React.ReactNode[] => {
-        const elements: (string | React.ReactNode)[] = [];
+        if (!str) return [];
+        const elements: React.ReactNode[] = [];
         const tokenRegex = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|\*([^*]+)\*/g;
         let lastIndex = 0;
-        let match;
+        let match: RegExpExecArray | null;
 
         while ((match = tokenRegex.exec(str)) !== null) {
           if (match.index > lastIndex) {
@@ -183,30 +187,36 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
           }
 
           if (match[1] !== undefined && match[2] !== undefined) {
-            // Markdown Link [label](url) - recursively parse label so nested **bold** inside links renders cleanly
+            // Markdown Link [label](url) - parse nested bold/italic inside label
             elements.push(
               <a
-                key={`link-${match.index}`}
+                key={`link-${match.index}-${lastIndex}`}
                 href={match[2]}
                 target="_blank"
                 rel="noreferrer"
-                style={{ color: 'var(--accent-cyan)', fontWeight: 600, textDecoration: 'underline' }}
+                style={{
+                  color: 'var(--accent-cyan)',
+                  fontWeight: 600,
+                  textDecoration: 'underline',
+                  wordBreak: 'break-word',
+                  overflowWrap: 'anywhere'
+                }}
               >
                 {parseInline(match[1])}
               </a>
             );
           } else if (match[3] !== undefined) {
-            // Markdown Bold **text**
+            // Markdown Bold **text** - parse nested links or formatting
             elements.push(
-              <strong key={`bold-${match.index}`} style={{ fontWeight: 700, color: 'var(--accent-cyan)' }}>
-                {match[3]}
+              <strong key={`bold-${match.index}-${lastIndex}`} style={{ fontWeight: 700 }}>
+                {parseInline(match[3])}
               </strong>
             );
           } else if (match[4] !== undefined) {
             // Markdown Italic *text*
             elements.push(
-              <em key={`italic-${match.index}`} style={{ fontStyle: 'italic' }}>
-                {match[4]}
+              <em key={`italic-${match.index}-${lastIndex}`} style={{ fontStyle: 'italic' }}>
+                {parseInline(match[4])}
               </em>
             );
           }
@@ -223,7 +233,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
 
       if (headingMatch) {
         return (
-          <div key={lineIdx} style={{ fontWeight: 700, fontSize: '0.95rem', marginTop: '0.4rem', marginBottom: '0.2rem', color: 'var(--accent-cyan)' }}>
+          <div key={lineIdx} style={{ fontWeight: 700, fontSize: '0.95rem', marginTop: '0.4rem', marginBottom: '0.2rem', color: 'var(--accent-cyan)', wordBreak: 'break-word' }}>
             {parseInline(headingMatch[2])}
           </div>
         );
@@ -231,9 +241,18 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
 
       if (bulletMatch) {
         return (
-          <div key={lineIdx} style={{ display: 'flex', gap: '0.4rem', marginTop: '0.2rem', marginBottom: '0.1rem' }}>
-            <span style={{ color: 'var(--accent-cyan)', fontWeight: 700 }}>•</span>
-            <div style={{ flex: 1 }}>{parseInline(bulletMatch[1])}</div>
+          <div key={lineIdx} style={{ display: 'flex', gap: '0.4rem', marginTop: '0.15rem', marginBottom: '0.1rem', wordBreak: 'break-word' }}>
+            <span style={{ color: 'var(--accent-cyan)', fontWeight: 700, flexShrink: 0 }}>•</span>
+            <div style={{ flex: 1, minWidth: 0, wordBreak: 'break-word', overflowWrap: 'anywhere' }}>{parseInline(bulletMatch[1])}</div>
+          </div>
+        );
+      }
+
+      if (numberMatch) {
+        return (
+          <div key={lineIdx} style={{ display: 'flex', gap: '0.4rem', marginTop: '0.2rem', marginBottom: '0.1rem', wordBreak: 'break-word' }}>
+            <span style={{ color: 'var(--accent-cyan)', fontWeight: 700, flexShrink: 0 }}>{numberMatch[1]}</span>
+            <div style={{ flex: 1, minWidth: 0, wordBreak: 'break-word', overflowWrap: 'anywhere' }}>{parseInline(numberMatch[2])}</div>
           </div>
         );
       }
@@ -261,7 +280,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
         zIndex: 100,
         borderRadius: 'var(--radius-lg)',
         overflow: 'hidden',
-        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(56, 189, 248, 0.25)',
+        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(66, 133, 244, 0.25)',
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: 'var(--bg-secondary)',
@@ -273,7 +292,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
       <div
         style={{
           padding: '1rem 1.25rem',
-          background: 'var(--gradient-primary)',
+          background: '#34A853',
           color: '#ffffff',
           display: 'flex',
           alignItems: 'center',
@@ -351,6 +370,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
           flexGrow: 1,
           padding: '1rem',
           overflowY: 'auto',
+          overflowX: 'hidden',
           display: 'flex',
           flexDirection: 'column',
           gap: '1rem',
@@ -363,7 +383,8 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: msg.sender === 'user' ? 'flex-end' : 'flex-start'
+              alignItems: msg.sender === 'user' ? 'flex-end' : 'flex-start',
+              width: '100%'
             }}
           >
             <div
@@ -371,12 +392,13 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
                 maxWidth: '85%',
                 padding: '0.75rem 1rem',
                 borderRadius: msg.sender === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
-                background: msg.sender === 'user' ? 'var(--gradient-primary)' : 'var(--bg-card)',
+                background: msg.sender === 'user' ? '#34A853' : 'var(--bg-card)',
                 color: msg.sender === 'user' ? '#ffffff' : 'var(--text-primary)',
                 border: msg.sender === 'bot' ? '1px solid var(--border-color)' : 'none',
                 fontSize: '0.9rem',
                 lineHeight: 1.5,
-                whiteSpace: 'pre-wrap'
+                wordBreak: 'break-word',
+                overflowWrap: 'anywhere'
               }}
             >
               {renderFormattedText(msg.text)}
@@ -388,16 +410,30 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
         ))}
 
         {isListening && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#ef4444', fontSize: '0.85rem', fontWeight: 600 }}>
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#ef4444', animation: 'pulseGlow 1s infinite' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#EA4335', fontSize: '0.85rem', fontWeight: 600 }}>
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#EA4335', animation: 'pulseGlow 1s infinite' }} />
             <span>Listening... Speak now and AI will auto-reply</span>
           </div>
         )}
 
         {isTyping && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-cyan)', fontSize: '0.85rem' }}>
-            <Sparkles size={16} className="animate-spin" />
-            <span>AI Agent is generating response...</span>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              padding: '0.75rem 1rem',
+              borderRadius: '18px 18px 18px 4px',
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              maxWidth: '85%',
+              width: 'fit-content',
+              alignSelf: 'flex-start',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+            }}
+          >
+            <Sparkles size={16} style={{ color: '#4285F4', flexShrink: 0 }} className="animate-spin" />
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>AI Agent is typing...</span>
           </div>
         )}
 
@@ -426,8 +462,8 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
               fontSize: '0.75rem',
               padding: '0.35rem 0.75rem',
               borderRadius: 'var(--radius-full)',
-              background: 'rgba(56, 189, 248, 0.08)',
-              border: '1px solid rgba(56, 189, 248, 0.2)',
+              background: 'rgba(66, 133, 244, 0.08)',
+              border: '1px solid rgba(66, 133, 244, 0.2)',
               color: 'var(--text-secondary)',
               cursor: 'pointer',
               whiteSpace: 'normal',
@@ -467,8 +503,8 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
               width: '40px',
               height: '40px',
               borderRadius: '50%',
-              background: isListening ? '#ef4444' : 'rgba(56, 189, 248, 0.1)',
-              border: isListening ? 'none' : '1px solid rgba(56, 189, 248, 0.3)',
+              background: isListening ? '#EA4335' : 'rgba(66, 133, 244, 0.1)',
+              border: isListening ? 'none' : '1px solid rgba(66, 133, 244, 0.3)',
               color: isListening ? '#ffffff' : 'var(--accent-cyan)',
               display: 'flex',
               alignItems: 'center',
@@ -498,7 +534,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
             padding: '0.65rem 1rem',
             borderRadius: 'var(--radius-full)',
             background: 'var(--bg-primary)',
-            border: isListening ? '1px solid #ef4444' : '1px solid var(--border-color)',
+            border: isListening ? '1px solid #EA4335' : '1px solid var(--border-color)',
             color: 'var(--text-primary)',
             fontSize: '0.9rem',
             outline: 'none'
@@ -512,7 +548,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose }) => {
             width: '40px',
             height: '40px',
             borderRadius: '50%',
-            background: 'var(--gradient-primary)',
+            background: '#34A853',
             border: 'none',
             color: '#ffffff',
             display: 'flex',

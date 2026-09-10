@@ -66,12 +66,12 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
               width: '38px',
               height: '38px',
               borderRadius: '10px',
-              background: 'var(--gradient-primary)',
+              background: '#34A853',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: '#ffffff',
-              boxShadow: '0 4px 12px rgba(56, 189, 248, 0.3)'
+              boxShadow: '0 4px 12px rgba(52, 168, 83, 0.3)'
             }}
           >
             <Code2 size={22} />
@@ -114,9 +114,9 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
               fontSize: '0.85rem',
               gap: '0.35rem',
               borderRadius: 'var(--radius-full)',
-              border: '1px solid rgba(168, 85, 247, 0.3)',
-              color: 'var(--accent-purple)',
-              background: 'rgba(168, 85, 247, 0.08)'
+              border: '1px solid rgba(234, 67, 53, 0.4)',
+              color: '#EA4335',
+              background: 'rgba(234, 67, 53, 0.08)'
             }}
           >
             <Mic size={16} />
@@ -133,9 +133,9 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
               fontSize: '0.85rem',
               gap: '0.35rem',
               borderRadius: 'var(--radius-full)',
-              border: '1px solid rgba(56, 189, 248, 0.3)',
+              border: '1px solid rgba(66, 133, 244, 0.3)',
               color: 'var(--accent-cyan)',
-              background: 'rgba(56, 189, 248, 0.08)'
+              background: 'rgba(66, 133, 244, 0.08)'
             }}
           >
             <Sparkles size={16} />
@@ -162,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onOpenChat, 
               flexShrink: 0
             }}
           >
-            {theme === 'dark' ? <Sun size={18} style={{ color: '#f59e0b' }} /> : <Moon size={18} style={{ color: '#6366f1' }} />}
+            {theme === 'dark' ? <Sun size={18} style={{ color: '#FBBC04' }} /> : <Moon size={18} style={{ color: '#4285F4' }} />}
           </button>
 
           {/* Mobile Menu Button */}

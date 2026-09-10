@@ -36,6 +36,8 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
 
   if (!isOpen) return null;
 
+  const isActive = isListening || isSpeaking || isTyping;
+
   return (
     <div
       style={{
@@ -63,9 +65,12 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
           width: '500px',
           height: '500px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, hsla(350, 90%, 49%, 0.3) 0%, rgba(225, 29, 72, 0.15) 40%, rgba(0, 0, 0, 0) 70%)',
+          background: isActive
+            ? 'radial-gradient(circle, rgba(52, 168, 83, 0.35) 0%, rgba(52, 168, 83, 0.15) 40%, rgba(0, 0, 0, 0) 70%)'
+            : 'radial-gradient(circle, rgba(234, 67, 53, 0.35) 0%, rgba(234, 67, 53, 0.15) 40%, rgba(0, 0, 0, 0) 70%)',
           filter: 'blur(70px)',
-          pointerEvents: 'none'
+          pointerEvents: 'none',
+          transition: 'background 0.5s ease'
         }}
       />
 
@@ -96,7 +101,7 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
             border: '1px solid rgba(255, 255, 255, 0.08)'
           }}
         >
-          <Sparkles size={16} style={{ color: 'hsl(350, 90%, 49%)' }} />
+          <Sparkles size={16} style={{ color: isActive ? '#34A853' : '#EA4335' }} />
           <span>Dipak's AI Voice Assistant</span>
         </div>
 
@@ -168,7 +173,7 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
           }}
         >
           {/* Wave Ripples */}
-          {(isListening || isSpeaking || isTyping) && (
+          {isActive && (
             <>
               <div
                 className="voice-ripple-1"
@@ -176,7 +181,7 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
                   position: 'absolute',
                   inset: 0,
                   borderRadius: '50%',
-                  border: '2px solid hsla(350, 90%, 49%, 0.7)',
+                  border: '2px solid rgba(52, 168, 83, 0.7)',
                   pointerEvents: 'none'
                 }}
               />
@@ -186,7 +191,7 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
                   position: 'absolute',
                   inset: 0,
                   borderRadius: '50%',
-                  border: '2px solid rgba(244, 63, 94, 0.5)',
+                  border: '2px solid rgba(52, 168, 83, 0.5)',
                   pointerEvents: 'none'
                 }}
               />
@@ -196,7 +201,7 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
                   position: 'absolute',
                   inset: 0,
                   borderRadius: '50%',
-                  border: '2px solid rgba(225, 29, 72, 0.4)',
+                  border: '2px solid rgba(52, 168, 83, 0.4)',
                   pointerEvents: 'none'
                 }}
               />
@@ -210,16 +215,18 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
               width: '140px',
               height: '140px',
               borderRadius: '50%',
-              background: 'var(--gradient-voice)',
+              background: isActive
+                ? 'linear-gradient(135deg, #34A853 0%, #2d9247 50%, #257a3b 100%)'
+                : 'linear-gradient(135deg, #EA4335 0%, #d93025 50%, #c5221f 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: isListening
-                ? '0 0 75px hsla(350, 90%, 49%, 0.95), inset 0 0 35px rgba(255, 255, 255, 0.6)'
-                : '0 0 60px hsla(350, 90%, 49%, 0.75), inset 0 0 30px rgba(255, 255, 255, 0.5)',
+              boxShadow: isActive
+                ? '0 0 75px rgba(52, 168, 83, 0.95), inset 0 0 35px rgba(255, 255, 255, 0.6)'
+                : '0 0 60px rgba(234, 67, 53, 0.75), inset 0 0 30px rgba(255, 255, 255, 0.5)',
               cursor: 'pointer',
               transition: 'all 0.4s ease',
-              transform: isListening || isSpeaking ? 'scale(1.08)' : 'scale(1)'
+              transform: isActive ? 'scale(1.08)' : 'scale(1)'
             }}
           >
             {isListening ? (
@@ -234,14 +241,14 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
 
         {/* Equalizer Visualizer Bars */}
         <div style={{ display: 'flex', gap: '8px', height: '54px', alignItems: 'center', marginBottom: '1.5rem' }}>
-          {isListening || isSpeaking || isTyping ? (
+          {isActive ? (
             <>
-              <div className="eq-bar" style={{ width: '6px' }} />
-              <div className="eq-bar" style={{ width: '6px' }} />
-              <div className="eq-bar" style={{ width: '6px' }} />
-              <div className="eq-bar" style={{ width: '6px' }} />
-              <div className="eq-bar" style={{ width: '6px' }} />
-              <div className="eq-bar" style={{ width: '6px' }} />
+              <div className="eq-bar" style={{ width: '6px', background: '#34A853' }} />
+              <div className="eq-bar" style={{ width: '6px', background: '#34A853' }} />
+              <div className="eq-bar" style={{ width: '6px', background: '#34A853' }} />
+              <div className="eq-bar" style={{ width: '6px', background: '#34A853' }} />
+              <div className="eq-bar" style={{ width: '6px', background: '#34A853' }} />
+              <div className="eq-bar" style={{ width: '6px', background: '#34A853' }} />
             </>
           ) : (
             <span style={{ fontSize: '0.95rem', color: 'rgba(255, 255, 255, 0.7)', letterSpacing: '0.05em' }}>
@@ -257,14 +264,8 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
             fontWeight: 700,
             padding: '0.5rem 1.5rem',
             borderRadius: 'var(--radius-full)',
-            background: isListening
-              ? 'rgba(239, 68, 68, 0.2)'
-              : isSpeaking
-              ? 'rgba(16, 185, 129, 0.2)'
-              : isTyping
-              ? 'rgba(225, 29, 72, 0.2)'
-              : 'rgba(255, 255, 255, 0.08)',
-            color: isListening ? '#f87171' : isSpeaking ? '#34d399' : isTyping ? '#f43f5e' : '#ffffff',
+            background: isActive ? 'rgba(52, 168, 83, 0.2)' : 'rgba(234, 67, 53, 0.2)',
+            color: isActive ? '#34A853' : '#EA4335',
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.6rem',
@@ -276,7 +277,7 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
               width: '8px',
               height: '8px',
               borderRadius: '50%',
-              backgroundColor: isListening ? '#ef4444' : isSpeaking ? '#10b981' : '#f43f5e',
+              backgroundColor: isActive ? '#34A853' : '#EA4335',
               animation: 'pulseGlow 1s infinite'
             }}
           />
@@ -316,7 +317,7 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
           }}
         >
           {transcript && (
-            <p style={{ fontSize: '1.1rem', fontWeight: 500, color: 'hsl(350, 90%, 49%)', marginBottom: '0.5rem' }}>
+            <p style={{ fontSize: '1.1rem', fontWeight: 500, color: isActive ? '#34A853' : '#EA4335', marginBottom: '0.5rem' }}>
               "{transcript}"
             </p>
           )}
@@ -338,8 +339,15 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
         <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
           <button
             onClick={onToggleListening}
-            className="btn btn-primary"
-            style={{ padding: '0.8rem 2rem', fontSize: '1rem', color: '#ffffff' }}
+            className="btn"
+            style={{
+              padding: '0.8rem 2rem',
+              fontSize: '1rem',
+              color: '#ffffff',
+              background: isListening ? '#EA4335' : '#34A853',
+              boxShadow: isListening ? '0 4px 15px rgba(234, 67, 53, 0.4)' : '0 4px 15px rgba(52, 168, 83, 0.3)',
+              transition: 'var(--transition)'
+            }}
           >
             <Mic size={20} style={{ color: '#ffffff' }} />
             <span style={{ color: '#ffffff' }}>{isListening ? 'Stop' : 'Speak Question'}</span>

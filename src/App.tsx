@@ -144,9 +144,9 @@ export const App: React.FC = () => {
       {/* Footer */}
       <Footer />
 
-      {/* Floating Buttons (Bottom Right) */}
+      {/* Floating Buttons (Bottom Right on Desktop, Centered on Mobile) */}
       {!isChatOpen && !isVoiceOpen && (
-        <div style={{ position: 'fixed', bottom: '28px', right: '28px', zIndex: 90, display: 'flex', gap: '0.75rem' }}>
+        <div className="floating-actions-bar">
           {/* Voice AI Circular Button */}
           <button
             onClick={handleOpenVoice}
@@ -174,11 +174,12 @@ export const App: React.FC = () => {
               gap: '0.5rem',
               fontWeight: 700,
               fontSize: '0.95rem',
+              whiteSpace: 'nowrap',
               transition: 'var(--transition)'
             }}
           >
-            <Sparkles size={20} style={{ color: 'var(--accent-cyan)' }} />
-            <span>AI Bot</span>
+            <Sparkles size={20} style={{ color: 'var(--accent-cyan)', flexShrink: 0 }} />
+            <span style={{ whiteSpace: 'nowrap' }}>AI Bot</span>
           </button>
         </div>
       )}

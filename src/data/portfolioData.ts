@@ -32,13 +32,13 @@ export const PERSONAL_INFO = {
   email: "dipakofficialbetaid@gmail.com",
   phone: "+91 6000389802",
   location: "India",
-  avatar: "./assets/images/newpp.jpg",
+  avatar: "./assets/images/dpreal.jpeg",
   aboutImage: "./assets/images/about.png",
   bio: "I build reliable, maintainable interfaces in Next.js, React, and TypeScript. I collaborate closely with product designers, backend teams, and business stakeholders to craft pixel-perfect, highly responsive digital products that boost user engagement and deliver real business value.",
   availability: "Open for High-Impact Projects & Opportunities",
   socials: {
     github: "https://github.com/dipakpathak164",
-    linkedin: "https://linkedin.com/in/dipakpathak164",
+    linkedin: "https://www.linkedin.com/in/dipak-pathak-1b8403185/",
     phone: "tel:6000389802",
   }
 };

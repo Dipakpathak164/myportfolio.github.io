@@ -94,9 +94,44 @@ function generateContextualResponse(query: string): string {
     return `### Project Highlight: [${matchedProject.title}](${matchedProject.link})\n\n- **Category**: ${matchedProject.category}\n- **Description**: ${matchedProject.description}\n- **Technologies Used**: ${matchedProject.tags.join(', ')}\n- **Live Deployment**: [Visit ${matchedProject.title}](${matchedProject.link})\n\nWould you like to hear about other recent deployments built by Dipak Pathak?`;
   }
 
-  // 2. Intent: Hiring / Senior React & Next.js Qualifications
-  if (q.includes('why') || q.includes('hire') || q.includes('next.js') || q.includes('nextjs') || q.includes('candidate') || q.includes('reason') || q.includes('qualification') || q.includes('fit')) {
-    return `### Why Dipak Pathak is an Ideal Fit for a Senior Next.js / React Role:\n\n1. **Proven Experience (Ex-Techasoft)**: 5 years of total professional experience and 1 year of relevant specialized frontend engineering experience taking full ownership from requirements to live release.\n2. **Next.js & React Mastery**: Architected 18+ recent web applications and enterprise platforms (*Trilegal*, *Surf Local*, *Dentscan AI*, *Certro*).\n3. **Performance & Clean Code Focus**: Achieves sub-2s initial paint times, high Lighthouse speed scores, and clean maintainable TypeScript architecture.\n4. **Product Ownership**: Direct experience working with designers, product managers, and backend engineers to launch production features on schedule.\n\n📧 Contact Dipak at **[${PERSONAL_INFO.email}](mailto:${PERSONAL_INFO.email})** or **[${PERSONAL_INFO.phone}](tel:6000389802)** to schedule an interview!`;
+  // 2. Intent: Direct Contact & Availability Info (Only Contact Details)
+  if (
+    q.includes('contact') || 
+    q.includes('email') || 
+    q.includes('phone') || 
+    q.includes('reach') || 
+    q.includes('how can i contact')
+  ) {
+    return `### Direct Contact & Availability Info:
+
+- **Email**: [${PERSONAL_INFO.email}](mailto:${PERSONAL_INFO.email})
+- **Phone / WhatsApp**: [${PERSONAL_INFO.phone}](tel:6000389802)
+- **Location**: Bengaluru, India (**100% Open to Remote Roles & Relocation**)
+- **Availability**: ${PERSONAL_INFO.availability}
+- **LinkedIn**: [Dipak Pathak LinkedIn](${PERSONAL_INFO.socials.linkedin})
+- **GitHub**: [Dipak Pathak GitHub](${PERSONAL_INFO.socials.github})`;
+  }
+
+  // 3. Intent: Why Dipak is an Ideal Fit for Senior Next.js / React Role
+  if (
+    q.includes('why') || 
+    q.includes('fit') || 
+    q.includes('ideal') || 
+    q.includes('hire') || 
+    q.includes('next.js') || 
+    q.includes('nextjs') || 
+    q.includes('candidate') || 
+    q.includes('reason') || 
+    q.includes('qualification')
+  ) {
+    return `Why Dipak Pathak is an Ideal Fit for a Senior Next.js / React Role:
+
+1. **Proven Experience (Ex-Techasoft)**: 5 years of total professional experience and 1 year of relevant specialized frontend engineering experience taking full ownership from requirements to live release.
+2. **Next.js & React Mastery**: Architected 18+ recent web applications and enterprise platforms (Trilegal, Surf Local, Dentscan AI, Certro).
+3. **Performance & Clean Code Focus**: Achieves sub-2s initial paint times, high Lighthouse speed scores, and clean maintainable TypeScript architecture.
+4. **Product Ownership**: Direct experience working with designers, product managers, and backend engineers to launch production features on schedule.
+
+📧 Contact Dipak at [${PERSONAL_INFO.email}](mailto:${PERSONAL_INFO.email}) or [${PERSONAL_INFO.phone}](tel:6000389802) to schedule an interview!`;
   }
 
   // 3. Intent: Experience & Techasoft Background
@@ -112,7 +147,7 @@ function generateContextualResponse(query: string): string {
   // 5. Intent: Projects & Portfolio Overview
   if (q.includes('project') || q.includes('work') || q.includes('portfolio') || q.includes('built') || q.includes('app') || q.includes('site')) {
     const featured = PROJECTS.slice(0, 5);
-    const list = featured.map(p => `- **[${p.title}](${p.link})** (${p.tags.slice(0, 2).join(', ')}): ${p.description}`).join('\n');
+    const list = featured.map(p => `- [**${p.title}**](${p.link}) (${p.tags.slice(0, 2).join(', ')}): ${p.description}`).join('\n');
     return `Dipak has delivered **18+ recent production web applications**. Here are featured highlights:\n\n${list}\n\nYou can explore all 18+ recent projects with live site links in the Projects section above!`;
   }
 

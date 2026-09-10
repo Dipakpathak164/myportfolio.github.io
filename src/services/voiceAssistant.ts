@@ -216,6 +216,21 @@ export class VoiceAssistantService {
       .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
       // Remove Emojis
       .replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '')
+      // Phonetic normalizer for phone numbers & 0 digits so '6000' is spoken as 'six zero zero zero'
+      .replace(/(\+?\d[\d\s-]{7,}\d)/g, (phone) => {
+        return phone
+          .replace(/\+/g, 'plus ')
+          .replace(/0/g, ' zero ')
+          .replace(/1/g, ' 1 ')
+          .replace(/2/g, ' 2 ')
+          .replace(/3/g, ' 3 ')
+          .replace(/4/g, ' 4 ')
+          .replace(/5/g, ' 5 ')
+          .replace(/6/g, ' 6 ')
+          .replace(/7/g, ' 7 ')
+          .replace(/8/g, ' 8 ')
+          .replace(/9/g, ' 9 ');
+      })
       // Remove Markdown Symbols
       .replace(/[*_#`~>]/g, ' ')
       // Developer Tech Phonetic Normalizer (smooth natural TTS pronunciation)

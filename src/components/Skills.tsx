@@ -64,12 +64,12 @@ export const Skills: React.FC = () => {
                   <div key={sIdx}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.45rem' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-primary)', fontWeight: 600, fontSize: '0.95rem' }}>
-                        <span style={{ color: '#38bdf8', display: 'flex', alignItems: 'center' }}>
+                        <span style={{ color: '#4285F4', display: 'flex', alignItems: 'center' }}>
                           {iconMap[skill.icon] || <Code2 size={18} />}
                         </span>
                         <span>{skill.name}</span>
                       </div>
-                      <span style={{ fontSize: '0.85rem', fontFamily: 'var(--font-mono)', color: '#38bdf8', fontWeight: 600 }}>{skill.level}%</span>
+                      <span style={{ fontSize: '0.85rem', fontFamily: 'var(--font-mono)', color: '#4285F4', fontWeight: 600 }}>{skill.level}%</span>
                     </div>
 
                     {/* Premium Sleek Progress Bar */}
@@ -86,9 +86,9 @@ export const Skills: React.FC = () => {
                         style={{
                           width: `${skill.level}%`,
                           height: '100%',
-                          background: 'linear-gradient(90deg, #38bdf8 0%, #818cf8 100%)',
+                          background: 'linear-gradient(90deg, #4285F4 0%, #34A853 100%)',
                           borderRadius: '9999px',
-                          boxShadow: '0 0 10px rgba(56, 189, 248, 0.45)',
+                          boxShadow: '0 0 10px rgba(66, 133, 244, 0.45)',
                           transition: 'width 1s ease-in-out'
                         }}
                       />

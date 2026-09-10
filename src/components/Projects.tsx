@@ -49,7 +49,7 @@ export const Projects: React.FC = () => {
                 cursor: 'pointer',
                 transition: 'var(--transition)',
                 border: activeTab === tab ? '1px solid var(--accent-cyan)' : '1px solid var(--border-color)',
-                backgroundColor: activeTab === tab ? 'rgba(56, 189, 248, 0.15)' : 'var(--bg-card)',
+                backgroundColor: activeTab === tab ? 'rgba(66, 133, 244, 0.15)' : 'var(--bg-card)',
                 color: activeTab === tab ? 'var(--accent-cyan)' : 'var(--text-secondary)',
               }}
             >
@@ -110,7 +110,7 @@ export const Projects: React.FC = () => {
                       position: 'absolute',
                       top: '12px',
                       right: '12px',
-                      background: 'var(--gradient-primary)',
+                      background: '#34A853',
                       color: '#ffffff',
                       fontSize: '0.75rem',
                       fontWeight: 700,
@@ -122,7 +122,7 @@ export const Projects: React.FC = () => {
                       boxShadow: '0 2px 10px rgba(0,0,0,0.3)'
                     }}
                   >
-                    <Star size={12} fill="#ffffff" /> Featured
+                    <Star size={12} fill="#FBBC04" style={{ color: '#FBBC04' }} /> Featured
                   </span>
                 )}
               </div>
