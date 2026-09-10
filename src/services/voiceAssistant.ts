@@ -212,9 +212,24 @@ export class VoiceAssistantService {
     if (!rawText) return '';
 
     return rawText
+      // Remove Markdown Links [Text](URL) -> Text
       .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      // Remove Emojis
       .replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '')
+      // Remove Markdown Symbols
       .replace(/[*_#`~>]/g, ' ')
+      // Developer Tech Phonetic Normalizer (smooth natural TTS pronunciation)
+      .replace(/React\.js/gi, 'React JS')
+      .replace(/Next\.js/gi, 'Next JS')
+      .replace(/Node\.js/gi, 'Node JS')
+      .replace(/Vue\.js/gi, 'Vue JS')
+      .replace(/ReactJS/gi, 'React JS')
+      .replace(/NextJS/gi, 'Next JS')
+      .replace(/NodeJS/gi, 'Node JS')
+      .replace(/HTML5/gi, 'HTML 5')
+      .replace(/CSS3/gi, 'CSS 3')
+      .replace(/UI\/UX/gi, 'UI and UX')
+      .replace(/ex-Techasoft/gi, 'former Techasoft')
       .replace(/email\s*:\s*email/gi, 'Email:')
       .replace(/phone\s*:\s*phone/gi, 'Phone:')
       .replace(/^\s*[-•]\s*/gm, '')

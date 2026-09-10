@@ -14,20 +14,24 @@ export async function sendChatMessage(
   userText: string,
   history: ChatMessage[] = []
 ): Promise<string> {
-  // If Gemini API Key is configured in environment, call Google Gemini API
+  // If Gemini API Key is configured in environment, call Google Gemini API with system_instruction and low temperature (0.2)
   if (GEMINI_API_KEY && GEMINI_API_KEY !== 'your_gemini_api_key_here') {
     if (!GEMINI_API_KEY.startsWith('AIza')) {
-      console.warn('VITE_GEMINI_API_KEY does not start with "AIza". Google AI Studio requires keys generated at https://aistudio.google.com/app/apikey. Falling back to local assistant.');
+      console.warn('VITE_GEMINI_API_KEY does not start with "AIza". Falling back to local precision assistant.');
     } else {
       try {
         const contents = [
+          ...history.slice(-6).map(m => ({
+            role: m.sender === 'user' ? 'user' : 'model',
+            parts: [{ text: m.text }]
+          })),
           {
             role: 'user',
-            parts: [{ text: `${CHATBOT_SYSTEM_PROMPT}\n\nUser Question: ${userText}` }]
+            parts: [{ text: userText }]
           }
         ];
 
-        const models = ['gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro'];
+        const models = ['gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-1.5-pro'];
         
         for (const model of models) {
           try {
@@ -36,7 +40,17 @@ export async function sendChatMessage(
               {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ contents })
+                body: JSON.stringify({
+                  system_instruction: {
+                    parts: [{ text: CHATBOT_SYSTEM_PROMPT }]
+                  },
+                  contents,
+                  generationConfig: {
+                    temperature: 0.2, // Low temperature for high accuracy & precision
+                    topP: 0.8,
+                    maxOutputTokens: 500
+                  }
+                })
               }
             );
 
@@ -57,35 +71,62 @@ export async function sendChatMessage(
     }
   }
 
-  // Standalone Pitch Assistant Response
-  return generateLocalAssistantResponse(userText);
+  // High-Relevance Grounded Local Assistant Fallback Engine
+  return generateContextualResponse(userText);
 }
 
-function generateLocalAssistantResponse(query: string): string {
-  const q = query.toLowerCase();
+/**
+ * Precision Intent Classifier & Context Grounded Matcher
+ */
+function generateContextualResponse(query: string): string {
+  const q = query.toLowerCase().trim();
 
-  // Why Hire Dipak / Next.js / Senior Role Questions
-  if (q.includes('why') || q.includes('hire') || q.includes('next.js') || q.includes('nextjs') || q.includes('candidate') || q.includes('reason')) {
-    return `### Why Hire Dipak Pathak for a Senior Next.js / React Role?\n\n1. **5 Years Professional / 1 Year Relevant Experience (Ex-Techasoft)**: Dipak doesn't just write code—he takes full ownership of web projects from initial requirements to production releases.\n2. **Next.js & React Mastery**: Architected 18+ recent high-performance web applications including enterprise platforms (*Trilegal*), healthcare (*Bravopharma*), SaaS (*Dentscan*), and marketplace portals (*Surf Local*).\n3. **Performance & Clean Code Focus**: Achieves sub-2s web paint times, high Lighthouse speed scores, and clean maintainable TypeScript architecture.\n4. **Seamless Collaboration**: Experienced working with product managers, UI/UX designers, and backend teams to deliver business value on time.\n\nContact Dipak at **${PERSONAL_INFO.email}** or **+91 6000389802** to schedule an interview!`;
+  // 1. Specific Project Search Grounding
+  const matchedProject = PROJECTS.find(p => 
+    q.includes(p.title.toLowerCase()) || 
+    q.includes(p.id.toLowerCase()) || 
+    (p.title.toLowerCase().includes('trilegal') && q.includes('trilegal')) ||
+    (p.title.toLowerCase().includes('surf') && q.includes('surf')) ||
+    (p.title.toLowerCase().includes('dentscan') && q.includes('dentscan'))
+  );
+
+  if (matchedProject) {
+    return `### Project Highlight: [${matchedProject.title}](${matchedProject.link})\n\n- **Category**: ${matchedProject.category}\n- **Description**: ${matchedProject.description}\n- **Technologies Used**: ${matchedProject.tags.join(', ')}\n- **Live Deployment**: [Visit ${matchedProject.title}](${matchedProject.link})\n\nWould you like to hear about other recent deployments built by Dipak Pathak?`;
   }
 
-  if (q.includes('experience') || q.includes('years') || q.includes('work') || q.includes('techasoft')) {
-    return `**Dipak Pathak** has **5 years of professional experience** overall and **1 year of relevant experience** as a former Senior Frontend Engineer at **Techasoft Pvt. Ltd** (Bengaluru, India), and is currently open for new senior frontend opportunities.\n\nHe specializes in taking ownership of web applications from technical requirements to production releases, specializing in **Next.js, React, TypeScript, and modern responsive UI design**.`;
+  // 2. Intent: Hiring / Senior React & Next.js Qualifications
+  if (q.includes('why') || q.includes('hire') || q.includes('next.js') || q.includes('nextjs') || q.includes('candidate') || q.includes('reason') || q.includes('qualification') || q.includes('fit')) {
+    return `### Why Dipak Pathak is an Ideal Fit for a Senior Next.js / React Role:\n\n1. **Proven Experience (Ex-Techasoft)**: 5 years of total professional experience and 1 year of relevant specialized frontend engineering experience taking full ownership from requirements to live release.\n2. **Next.js & React Mastery**: Architected 18+ recent web applications and enterprise platforms (*Trilegal*, *Surf Local*, *Dentscan AI*, *Certro*).\n3. **Performance & Clean Code Focus**: Achieves sub-2s initial paint times, high Lighthouse speed scores, and clean maintainable TypeScript architecture.\n4. **Product Ownership**: Direct experience working with designers, product managers, and backend engineers to launch production features on schedule.\n\n📧 Contact Dipak at **[${PERSONAL_INFO.email}](mailto:${PERSONAL_INFO.email})** or **[${PERSONAL_INFO.phone}](tel:6000389802)** to schedule an interview!`;
   }
 
-  if (q.includes('skill') || q.includes('stack') || q.includes('tech') || q.includes('framework')) {
-    return `Dipak's primary tech stack includes:\n- **Frontend**: Next.js, React.js, TypeScript, JavaScript (ES6+)\n- **Styling**: Tailwind CSS, Bootstrap 5, Modern CSS Modules, Glassmorphic Design Systems\n- **Backend & APIs**: Node.js, PHP (CodeIgniter), REST APIs, JSON\n- **Databases & Tools**: MySQL, Git, Vite, Vercel, GitHub Pages`;
+  // 3. Intent: Experience & Techasoft Background
+  if (q.includes('experience') || q.includes('years') || q.includes('techasoft') || q.includes('background') || q.includes('role') || q.includes('career')) {
+    return `**Dipak Pathak** has **5 years of overall professional experience** and **1 year of relevant experience** as a former Senior Frontend Engineer at **Techasoft Pvt. Ltd** (Bengaluru, India).\n\nKey Experience Highlights:\n- Architected and deployed **18+ recent production web applications** using Next.js, React, and TypeScript.\n- Optimized frontend performance to reach sub-2s page load times.\n- Built responsive design systems and integrated complex REST APIs and auth flows.\n- Currently available for high-impact Senior Frontend Engineering positions (Open to Remote / Relocation).`;
   }
 
-  if (q.includes('project') || q.includes('work') || q.includes('portfolio') || q.includes('built')) {
-    const featured = PROJECTS.slice(0, 4);
-    const projectList = featured.map(p => `- [${p.title}](${p.link}): ${p.description}`).join('\n');
-    return `Dipak has architected and delivered **18+ recent web applications & enterprise platforms**. Here are a few recent highlights:\n\n${projectList}\n\nYou can explore all 18+ recent projects right in the Projects section!`;
+  // 4. Intent: Technical Skills & Tech Stack
+  if (q.includes('skill') || q.includes('stack') || q.includes('tech') || q.includes('framework') || q.includes('language') || q.includes('tools') || q.includes('frontend') || q.includes('backend')) {
+    return `Dipak Pathak's engineering stack:\n\n- **Core Frontend**: Next.js, React.js, TypeScript, JavaScript (ES6+), HTML5 / CSS3\n- **Design Systems & Styling**: Tailwind CSS, Bootstrap 5, CSS Modules, Responsive & Adaptive UI Design\n- **Backend & APIs**: Node.js, PHP (CodeIgniter), REST APIs, JSON Integration\n- **Databases & Tools**: MySQL, Git, GitHub Actions CI/CD, Vite, Vercel, Netlify`;
   }
 
-  if (q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('reach') || q.includes('message')) {
-    return `You can reach Dipak Pathak directly via:\n- **Email**: [${PERSONAL_INFO.email}](mailto:${PERSONAL_INFO.email})\n- **Phone**: [${PERSONAL_INFO.phone}](tel:6000389802)\n- **LinkedIn**: [Dipak Pathak LinkedIn](${PERSONAL_INFO.socials.linkedin})\n- **GitHub**: [Dipak Pathak GitHub](${PERSONAL_INFO.socials.github})\n\nOr scroll down to send him a direct message using the contact form!`;
+  // 5. Intent: Projects & Portfolio Overview
+  if (q.includes('project') || q.includes('work') || q.includes('portfolio') || q.includes('built') || q.includes('app') || q.includes('site')) {
+    const featured = PROJECTS.slice(0, 5);
+    const list = featured.map(p => `- **[${p.title}](${p.link})** (${p.tags.slice(0, 2).join(', ')}): ${p.description}`).join('\n');
+    return `Dipak has delivered **18+ recent production web applications**. Here are featured highlights:\n\n${list}\n\nYou can explore all 18+ recent projects with live site links in the Projects section above!`;
   }
 
-  return `Thanks for reaching out! I'm **Dipak's AI Portfolio Assistant**. Dipak Pathak is a Senior Frontend Engineer (ex-Techasoft) with **5 years professional experience** (and **1 year relevant experience**) building web products in **React, Next.js, and TypeScript**.\n\nFeel free to ask me about his **projects**, **skills**, **work experience**, or **why you should hire him**!`;
+  // 6. Intent: Contact, Remote, Relocation & Availability
+  if (q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('reach') || q.includes('remote') || q.includes('relocat') || q.includes('location') || q.includes('available')) {
+    return `### Direct Contact & Availability Info:\n\n- **Email**: [${PERSONAL_INFO.email}](mailto:${PERSONAL_INFO.email})\n- **Phone / WhatsApp**: [${PERSONAL_INFO.phone}](tel:6000389802)\n- **Location**: Bengaluru, India (**100% Open to Remote Roles & Relocation**)\n- **Availability**: ${PERSONAL_INFO.availability}\n- **LinkedIn**: [Dipak Pathak LinkedIn](${PERSONAL_INFO.socials.linkedin})\n- **GitHub**: [Dipak Pathak GitHub](${PERSONAL_INFO.socials.github})`;
+  }
+
+  // 7. Intent: Greeting / Introduction
+  if (q.startsWith('hi') || q.startsWith('hello') || q.startsWith('hey') || q === 'who are you') {
+    return `Hello! I'm **Dipak Pathak's AI Portfolio Representative**.\n\nDipak is a Senior Frontend Engineer (ex-Techasoft) with **5 years of professional experience** (and **1 year relevant experience**) specializing in **React, Next.js, and TypeScript**.\n\nHow can I help you today? You can ask me about:\n- *"Why should we hire Dipak?"*\n- *"What are his top projects?"*\n- *"What is his technical stack?"*\n- *"Is Dipak open for remote work?"*`;
+  }
+
+  // Fallback Response
+  return `Thank you for your question! Dipak Pathak is a Senior Frontend Engineer with **5 years professional experience** (1 year relevant experience at Techasoft) specializing in **Next.js, React, and TypeScript**.\n\nYou can reach him directly at **[${PERSONAL_INFO.email}](mailto:${PERSONAL_INFO.email})** or **[${PERSONAL_INFO.phone}](tel:6000389802)**. Ask me any question about his projects, skills, or experience!`;
 }
+
