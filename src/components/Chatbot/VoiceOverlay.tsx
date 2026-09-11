@@ -283,7 +283,7 @@ export const VoiceOverlay: React.FC<VoiceOverlayProps> = ({
           />
           <span>
             {isListening
-              ? 'Listening... Auto-submits when you stop'
+              ? 'Listening...'
               : isTyping
               ? 'AI Agent Thinking...'
               : isSpeaking
